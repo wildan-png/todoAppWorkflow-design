@@ -1,6 +1,6 @@
 # Founder brief — synthesized from `/brief/`
 
-**Sources read:** `brief/brief.md` (client brief for **aTodo**, dated April 30, 2026; client Wildan). No other files were present under `/brief/`.
+**Sources:** `brief/brief.md` (client brief for **aTodo**, dated April 30, 2026; client Wildan). **Founder clarifications** below are merged in where they extend or override silence in the original brief.
 
 ---
 
@@ -16,7 +16,8 @@
   A **focused** web app: **simple** task tracking (list + board + task detail), **without chasing parity** with large PM suites; **aligned with a simpler scope** than paid competitors (per brief).
 
 - **What does success look like in 6 months? In 1 year?**  
-  ⚠️ Not mentioned — needs follow-up
+  **6 months:** **~100 active users** (founder target).  
+  **1 year:** ⚠️ Not mentioned — needs follow-up
 
 ---
 
@@ -26,7 +27,7 @@
   **Linear**, **Plane**, and **ClickUp** (named explicitly as tools in the same problem space).
 
 - **Who are the indirect competitors? (different product, same problem)**  
-  ⚠️ Not mentioned — needs follow-up
+  **Founder:** no indirect competitors in mind / none identified for now.
 
 - **What do competitors do well that we should match or beat?**  
   - **Linear:** **speed**, **minimal UI** (brief calls this **aspirational**; aTodo MVP stays smaller).  
@@ -63,13 +64,13 @@
 ## 🎨 Design Direction
 
 - **Is there any existing brand identity? (logo, colors, fonts)**  
-  ⚠️ Not mentioned — needs follow-up
+  **None** (no locked logo, palette, or type system). UI direction instead: **dark**, **compact**, **clean**, **professional** (founder preference).
 
 - **What visual style feels right? (references, adjectives)**  
-  **Linear**-like direction: **speed**, **minimal UI** — **aspirational**; MVP **stays smaller** than Linear’s scope. **Plane** / **ClickUp** mentioned mainly for product positioning, not detailed visual specs.
+  **Founder:** **dark**, **compact**, **clean**, **professional**. Still aligned with brief’s **Linear**-like aspiration: **speed**, **minimal UI**; MVP **stays smaller** than Linear’s scope. **Plane** / **ClickUp** in the brief are mainly product positioning, not visual specs.
 
 - **What should the product feel like to use? (fast, trustworthy, playful, professional)**  
-  Brief language: **clear**, **obvious picture** of where each task stands and who owns it; **simple**; aligned with **minimal** reference (Linear). No single adjective like “playful” or “trustworthy” given explicitly.
+  From brief: **clear**, **obvious picture** of status and ownership; **simple**; **minimal** (Linear reference). **Founder:** **professional**, **clean**, **compact** (dense layout), **dark** theme.
 
 - **Is there anything design-wise the founder dislikes or wants to avoid?**  
   ⚠️ Not mentioned — needs follow-up (beyond scope boundaries above, which are product scope, not aesthetic “dislikes”).
