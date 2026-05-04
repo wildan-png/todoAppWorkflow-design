@@ -37,7 +37,7 @@
 
 ## Part B — Feature-level journeys (every feature)
 
-Each feature includes **Happy path (interactions)** (click/order level, aligned with [sitemap.md](../design/sitemap.md)) and **Edge / recover**, then the journey table (thoughts, pains, opportunities).
+Each feature includes **Happy path (interactions)** (click/order level, aligned with [sitemap.md](../design/sitemap.md)), **Edge / recover**, a compact **Interaction flow (Mermaid)** diagram summarizing the same path, then the journey table (thoughts, pains, opportunities).
 
 ### Feature: Unified task list view — Task Inbox/List
 
@@ -58,6 +58,19 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - List feels wrong or empty after filters → use **Clear all filters** / chip dismiss (see Filter feature).
 - Row looks stale → focus tab or use list **refetch** when shipped; hard refresh as last resort.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  L["/list"] --> S[Scan table]
+  S --> R{Open row?}
+  R -->|yes| D["Drawer ?task="]
+  R -->|no| F[Filter / Sort]
+  S --> P[Parity: board / tabs]
+  F --> C[Clear filters if stuck]
+  D --> P
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -87,6 +100,20 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Empty title on submit → inline validation; no new row.
 - Mistyped title after create → click row → drawer **`/list?task=[id]`** → edit title (autosave).
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  L["/list"] --> P[Click +]
+  P --> Q[Quick-add title focus]
+  Q --> T[Type optional assignee status]
+  T --> E[Enter / Create]
+  E --> R[New row]
+  R --> B["/board parity"]
+  E -.->|empty title| V[Inline validation]
+  R -.->|typo| D["Row ?task= edit"]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | List top bar or persistent "+" | Decides to log new deliverable while on a call | "If I don’t capture this now, it lives in Slack." | Buried create button; modal with 12 fields | Single obvious quick-add anchored to list |
@@ -113,6 +140,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Wrong status picked → open chip again → pick correct status.
 - Mutation fails → chip rolls back + toast; retry from row.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  L["/list row"] --> C[Click status chip]
+  C --> M[Pick To do In progress Done]
+  M --> A[Apply no Save]
+  A --> P[Row + board + drawer sync]
+  M -.->|wrong| C
+  A -.->|API fail| T[Rollback + toast]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -141,6 +180,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Zero results → zero-state copy + **Clear all filters**.
 - Board and list feel inconsistent → toggle “filters apply to board” or read inline explainer per spec.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  L["/list"] --> F[Filter toolbar]
+  F --> O[Popover multi-select]
+  O --> A[Apply + URL query]
+  A --> V[View subset]
+  A -.->|zero rows| Z[Clear all filters]
+  A -.->|vs board| X[Toggle or explainer]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | List grows past ~15 mixed-client tasks | Opens filter control in list toolbar | "I only care about In progress + Alex today." | Export to spreadsheet workaround | Filter chips persistent but dismissible |
@@ -168,6 +219,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Wrong sort → open Sort again → pick another key (remember last choice per user when shipped).
 - Dates look wrong → verify workspace timezone under **`/settings/workspace`**.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  L["/list"] --> S[Sort menu]
+  S --> K[Pick key + direction]
+  K --> R[Reorder + sort= URL]
+  R --> T[Scan top of list]
+  K -.->|wrong key| S
+  R -.->|TZ wrong| W["/settings/workspace"]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Deadline morning | Opens sort menu on list | "What’s due soonest?" | Fixed arbitrary ordering | Expose due date / priority / updated sort |
@@ -194,6 +257,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Shortcut not built yet → use **`+`** quick-add only; no dead shortcut in empty state until shipped.
 - App not focused → shortcut does nothing; click app then **`+`**.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  K[Global shortcut post-MVP] --> Q[Quick-add title]
+  Q --> E[Enter creates task]
+  E --> L["/list row"]
+  K -.->|not shipped| P[Click + path]
+  K -.->|unfocused| P
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Mid-typing in IDE or email | Hits global shortcut (when implemented) | "Open capture now." | Shortcut conflicts with OS/browser | **Post-MVP** per modules-features §4; document conflict-free default when shipped |
@@ -218,6 +292,16 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 **Edge / recover**
 
 - Want custom status → not MVP; use title prefix / comment convention; feedback link from read-only explainer on **`/settings/workspace`**.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  N[Sidebar Board] --> B["/board"]
+  B --> C[Three columns To do In progress Done]
+  C --> V[Scan cards]
+  C -.->|custom later| S["/settings/workspace copy"]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -248,6 +332,19 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Wrong column → drag card back or change status from **`/list`** inline chip.
 - Keyboard-only path → use list inline status or detail when drag alternative exists.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  B["/board"] --> G[Grab card]
+  G --> D[Drag + highlights]
+  D --> O[Drop on column]
+  O --> S[Optimistic + confirm]
+  S --> L["/list parity"]
+  O -.->|miss| R[Snap back]
+  S -.->|error| T[Rollback + toast]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Stand-up or async review on board | Grabs card | "Move means progress." | Drag disabled on desktop | Hit targets meet WCAG AA intent per brief |
@@ -273,6 +370,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Stale UI after idle → tab refocus triggers refetch when implemented.
 - Concurrent edit conflict → toast + soft refetch; rare last-write-wins per server rules.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  T1["Tab /list or /board"] --> E[Edit in drawer or detail]
+  E --> T2[Other surface]
+  T2 --> C{Fields match?}
+  C -->|yes| OK[Same task id]
+  C -.->|stale| R[Refetch / focus]
+  C -.->|conflict| X[Toast + soft refetch]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -300,6 +409,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Lane count overwhelming → toggle group off from the same control near List/Board switch.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  B["/board"] --> G[Toggle group=assignee]
+  G --> L[Lanes per member]
+  L --> M[Drag lane or assign in detail]
+  M --> P["/list chip match"]
+  L --> O[Toggle off flat view]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Multiple contractors active | Toggles group-by assignee on board | "Whose In progress is bloated?" | Only manual scanning | MVP-essential per modules-features §4 |
@@ -324,6 +444,16 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Not in MVP build → ignore; do not gate drag on WIP.
 - Signal feels wrong → ignore or hide per workspace when that setting exists.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  B["/board"] --> H[Column hint post-MVP]
+  H --> R[Advisory only]
+  R --> D[Drag to Done when ready]
+  H -.->|MVP off| B
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -351,6 +481,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Save fails → inline **Retry** from error banner.
 - Opened wrong task → **Esc** closes drawer or **Back** from full page → return to list/board.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  O["Row or card click"] --> D["Drawer or /tasks/id"]
+  D --> E[Edit title description]
+  E --> A[Autosave]
+  A --> S[Saved indicator]
+  A -.->|fail| R[Retry banner]
+  D -.->|wrong| X[Esc / Back]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Clicks row from list/board | Detail panel/page opens | "Context lives here." | Full navigation away losing list position | Split pane or overlay preserving list scroll |
@@ -376,6 +518,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Wrong assignee → reopen dropdown → pick another member.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  D[Task detail] --> U[Assignee dropdown]
+  U --> M[Pick member MVP]
+  M --> P[Set priority]
+  P --> S[Autosave]
+  S --> C["List / board chips"]
+  U -.->|wrong| U
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Task needs owner before stand-up | Opens detail | "Who’s on the hook?" | Assignee picker empty | Seed workspace members in picker |
@@ -400,6 +554,16 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 **Edge / recover**
 
 - Client changes date → reopen picker and adjust.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  D[Task detail] --> P[Due date control]
+  P --> C[Calendar pick or clear]
+  C --> S[Save]
+  S --> L["/list compact due"]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -427,6 +591,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Upload fails (size/network) → error + **Retry**.
 - Wrong file → **Delete** attachment → confirm dialog when shipped.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  D[Task detail] --> A[Attachments section]
+  A --> F[Choose file / drop]
+  F --> U[Upload progress]
+  U --> T[Thumbnails + lightbox]
+  U -.->|fail| R[Retry]
+  T -.->|wrong file| DEL[Delete confirm]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Needs reference on task | Scrolls to attachments | "Boards aren’t Figma." | Out-of-scope video | Images only per brief |
@@ -453,6 +629,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Typo shortly after send → **Edit** within short window or **Delete** per MVP rules.
 - Send fails → error on bubble + **Retry**.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  D[Task detail] --> C[Comments thread]
+  C --> W[Composer type]
+  W --> S[Send]
+  S --> L[Append comment]
+  S -.->|fail| E[Retry on bubble]
+  L -.->|typo window| EDIT[Edit or delete]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Blocker note after deploy | Opens detail comments | "Keep it near the task." | Thread in Slack only | Comment stream anchored to task |
@@ -476,6 +664,16 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 **Edge / recover**
 
 - MVP without subtasks → use **description** headings / bullets as workaround.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  D[Task detail] --> X{Subtasks shipped?}
+  X -->|post-MVP| K[Checklist add check]
+  K --> PR[Progress chip]
+  X -.->|MVP| DESC[Description bullets]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -504,6 +702,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Wrong email → **Revoke** + create new invite (owner).
 - Rate-limited resend → wait for cooldown copy.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  S["/settings/team"] --> I[Invite]
+  I --> M[Modal email or link]
+  M --> N[Send or copy]
+  N --> P[Pending invite row]
+  N -.->|wrong email| R[Revoke + re-invite]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | New engagement starts | Opens invite from workspace menu | "Fast invite, no procurement." | Hidden invite | Always-visible team entry |
@@ -529,6 +738,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Member row should not expose owner-only actions → read-only or hidden per role.
 - Cannot remove last owner → blocked with explainer.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  S["/settings/team"] --> T[Member table]
+  T --> R[Role Owner vs Member]
+  R --> C[Confirm if demote]
+  C --> B[Badge update]
+  R -.->|last owner| X[Block + copy]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -556,6 +776,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Expired → **Regenerate** / new invite flow per spec.
 - Stuck pending after accept → refocus page to poll; support if still broken.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  S["/settings/team"] --> L[Invites list + chips]
+  L --> A[Resend or copy link]
+  A --> P[Pending]
+  P --> K[Accepted member row]
+  P -.->|expired| G[Regenerate invite]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Sent invite yesterday | Opens team panel | "Did they click?" | Black hole | Explicit pending/expired chips |
@@ -581,6 +812,16 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - MVP: no client link → export/screenshot workaround from marketing copy.
 - Revoke access → **Revoke token** in list when shipped.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  X{Post-MVP} --> SH[Share read-only]
+  SH --> L[Copy client link]
+  L --> V[Client read-only view]
+  SH -.->|MVP| SS[Screenshot export]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -608,6 +849,19 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Validation on empty workspace name or empty task title → inline errors.
 - Workspace name typo later → **`/settings/workspace`** → rename.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  R["/register or /login"] --> M[Magic link]
+  M --> W["/onboarding/workspace"]
+  W --> F["/onboarding/first-task"]
+  F --> C[Create or Skip]
+  C --> L["/list"]
+  W -.->|validation| W
+  F -.->|empty title| F
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Landing from marketing | Starts signup | "Don’t waste my night." | Long forms | Workspace name + user in one flow |
@@ -633,6 +887,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Skipped invite → open **Team** from sidebar later — no punitive copy.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  L["/list empty"] --> E[Empty checklist CTAs]
+  E --> A[Add task]
+  E --> B[Move status]
+  E --> T["Invite Team"]
+  A --> D[Dismiss when tasks exist]
+  E -.->|skipped invite| T
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Lands on empty workspace | Sees empty list/board | "What now?" | Blank generic template per founder fear | Tailored dark compact empty illustration + 3 CTAs |
@@ -656,6 +922,16 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 **Edge / recover**
 
 - Until shipped → only manual **Add task** from empty state.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  E[Empty state] --> X{Template shipped?}
+  X -->|yes| P[Pick preset]
+  P --> I[Insert tasks]
+  X -.->|MVP| M[Manual add task]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -683,6 +959,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 - Member hits page → **Owner only** locked card / read-only per sitemap.
 - Invalid name → inline validation before save.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  A[Avatar Settings] --> W["/settings/workspace"]
+  W --> E[Edit name timezone]
+  E --> S[Save]
+  S --> L["/list due labels"]
+  W -.->|member| RO[Owner only locked]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Due dates look off | Opens settings | "Fix the basics." | Settings maze | Small settings surface |
@@ -706,6 +993,15 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 **Edge / recover**
 
 - Need “Client review” today → use **title prefix** or **comment** convention; no hidden fourth column toggle.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  W["/settings/workspace"] --> R[Read-only 3 statuses]
+  R --> F[Feedback link optional]
+  R -.->|need extra stage| C[Title prefix convention]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -732,6 +1028,18 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 - Dismiss should not reappear aggressively; cooldown per policy.
 
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  M[Session milestone] --> B[Banner or modal]
+  B --> D[Dismiss]
+  B --> N[Donate external]
+  D --> W[Continue tasks]
+  N --> W
+  W --> S["/settings/donation later"]
+```
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Session milestone or time-based | Modal/banner surfaces | "Here it comes." | Blocking modal | Dismiss continues work per brief |
@@ -755,6 +1063,17 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 **Edge / recover**
 
 - Missed email after muting → re-enable category; use **task comments** as backstop.
+
+**Interaction flow (Mermaid)**
+
+```mermaid
+flowchart LR
+  S["/settings/notifications"] --> R[Read MVP defaults]
+  R --> T{Toggles shipped?}
+  T -->|yes| F[Flip categories Save]
+  T -.->|placeholder| C[Coming soon copy]
+  F -.->|missed| RE[Re-enable]
+```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
