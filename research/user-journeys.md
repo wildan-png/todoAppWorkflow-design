@@ -6,38 +6,38 @@
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
-| Awareness | Pricing comparison moment while evaluating Linear/ClickUp alternatives | Scans positioning, pricing logic, and product scope claims | "I need clarity fast, not another expensive system." Cautious but hopeful | Seat-based pricing shock for short-term contractors; vague value proposition | Lead with free-core collaboration and anti-bloat promise in the first screen/message |
-| Onboarding | Workspace creation + first-task setup flow | Creates workspace, adds first task, sets assignee/status in <=2 steps | "If this takes more than a few minutes, I am out." Time-pressure mindset | Long setup, forced hierarchy design, too many required fields | One-path onboarding: workspace name -> first task -> visible list/board parity immediately |
-| First value | Unified list with status + assignee visible | Adds several active client tasks via quick add and inline status update | Relief: "Now I can see everything in one place." | Reconstructing work from Slack/email/spreadsheets; hidden ownership | Dense default list sorted for triage (status/owner/priority visible by default) |
-| Core loop | Board/list/detail workflow during daily triage and handoffs | Moves tasks across statuses, assigns contractor, adds context in task detail/comments | "Good, I can answer who owns what in seconds." Confident, in control | View mismatch across list/board/detail; ambiguous invite/join state | Keep board/list/detail fully synced and frictionless invite flow for rotating collaborators |
-| Power use | Pre-milestone coordination window (24–48h before deadline/invoice) | Filters by assignee + priority, checks due dates, uploads proof attachments, resolves blockers | Focused urgency: "No surprises before client review." | Last-minute chaos, stale task states, lost context in chat threads | Deadline mode cues (e.g., smart sorting/highlight) that accelerate closure without adding complexity |
-| Advocacy | Post-delivery reflection and peer/tool recommendation moments | Keeps using product for next engagement; recommends to other independents | "This protects my margin and looks professional." Pride + trust | Feeling "cheap tool" stigma or design that looks generic/unpolished | Reinforce professional aesthetic and simple reliability as a differentiator for solo+contractor teams |
+| Awareness | Shopping around vs tools like Linear or ClickUp | Reads pricing and what the product actually includes | "Tell me quickly if this is worth it—and don’t punish contractors with seat math." Hopeful but wary | Surprise per-seat bills; marketing that sounds big but says little | First screen: honest “free core,” simple scope, no bloat story |
+| Onboarding | First time in the app: workspace + first task | Names workspace, adds a task, sets who owns it and status in two quick steps | "If this drags past a few minutes, I’m gone." Rushed, evaluating | Long wizards, fake “projects” before work exists, too many required fields | One straight path: name → first task → see the same work on list and board right away |
+| First value | One list with status and owner on every row | Adds a few real client tasks (quick add + status from the list) | "Finally—everything in one place, not buried in Slack." Relief | Rebuilding reality from chats, email, and spreadsheets; “who owns this?” missing | Default list feels dense and scannable: status, owner, priority without setup |
+| Core loop | Every day: list, board, task detail | Moves work across columns, reassigns, drops notes in the task | "I can answer who’s on what in seconds." In control | List and board disagree; invites feel mysterious | List, board, and detail always match; inviting a contractor stays simple |
+| Power use | A day or two before a deadline or invoice | Filters by person and priority, checks dates, attaches proof, clears blockers | "No surprises before the client sees this." Tense but focused | Scrambling at the last minute; tasks silently out of date; context lost in threads | Gentle “deadline mode” cues—sorting or highlights—that speed wrap-up without new complexity |
+| Advocacy | After a good delivery; talking to peers | Keeps using it for the next gig; tells other independents | "This keeps me looking pro without enterprise nonsense." Proud | Tool feels cheap or generic in front of clients | Look and feel polished; reliability as the “small team” differentiator |
 
 ### Journey: Priya Nair — Run a calm, professional delivery flow without all-in-one PM bloat
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
-| Awareness | Frustration point in bloated PM workspace (noise/slow loads) | Searches for simpler list+board alternative for a 2-person studio | "We need less software, more shipping." Frustrated by admin overhead | Notification overload, performance lag, enterprise-style terminology | Message around "list + board + detail only" and "no workspace architecture project" |
-| Onboarding | First-day setup for studio workspace | Creates workspace, invites cofounder/freelancer, seeds active client tasks | "Please don’t make me configure Spaces/Folders/Lists again." | Forced structural setup and unclear role/invite states | Immediate invite/join clarity and pre-opinionated defaults (To do/In progress/Done) |
-| First value | Board by status with clear ownership | Uses board to visualize pipeline; checks that list/detail reflect same updates | "This is the exact level of structure we need." Calm confidence | Inconsistent data between views; unclear responsibility per card | Make ownership and status chips prominent in every view to reduce coordination chatter |
-| Core loop | Daily stand-up glance + review-week crunch | Moves cards, updates assignees/priority/due dates, adds image references in task detail | "Now deadline conversations are objective, not memory-based." | Slack as source of truth; missing visual context for creative work | Attachment-first detail experience for creative assets and fast async comments trail |
-| Power use | 48h pre-client review and invoice checkpoint | Runs assignee-focused board/list scans, closes in-progress drift, confirms done criteria | Controlled urgency: "We can walk into client review prepared." | Last-minute rework from hidden blockers; too many in-progress items | Lightweight WIP/risk signaling to prevent overload while preserving a simple UI |
-| Advocacy | Client-facing professionalism and peer studio recommendations | Continues workflow, shares tool with other tiny agencies/studios | "This makes us look organized without enterprise baggage." | Tool that feels amateur or too rigid for creative teams | Differentiate with polished, dense visual design that signals competence to clients |
+| Awareness | Current PM tool feels noisy, slow, or overbuilt | Looks for a simple list + board for a tiny studio | "We need less software and more shipping." Tired of admin | Ping overload; slow UI; jargon meant for huge companies | Promise: only list, board, and task detail—no “design your workspace” homework |
+| Onboarding | Day one: workspace for the studio | Creates workspace, invites partner or freelancer, adds real tasks | "Don’t make me build Spaces / Folders / Lists again." | Forced nesting, confusing invites, unclear roles | Clear invite flow; default columns To do → In progress → Done—no ceremony |
+| First value | Board that matches how work really moves | Uses columns to see the pipeline; checks list and detail stay in sync | "This is enough structure—nothing extra." Calm | Different screens telling different stories; unclear who owns a card | Owner and status obvious everywhere so Slack isn’t the source of truth |
+| Core loop | Daily check-in and busy weeks | Moves cards, updates who’s on it, dates, drops images in the task | "Deadlines aren’t a guessing game anymore." | Proof living only in Slack; no visuals on the work | Task detail built for attachments + quick comments, async-first |
+| Power use | Two days before client review or billing | Skims board/list by person, tidies “in progress,” checks what “done” means | "We can walk into that meeting prepared." Steady pressure | Surprise rework; mystery blockers; too much stuck “in progress” | Light signals when a column is overloaded—no enterprise WIP theater |
+| Advocacy | Showing polish to clients; recommending to friends | Stays on the workflow; tells other small studios | "We look organized without dragging enterprise baggage." | UI that feels toy-like or too rigid for creative work | Dense, confident visual design—reads as professional in client-facing moments |
 
 ### Journey: Miguel Santos — Get issue-like clarity for tiny team execution without dev-tool ceremony
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
-| Awareness | Comparison between dev-centric tools and lightweight alternatives | Evaluates whether product keeps Linear-like speed but strips ceremony | "I want speed and clarity, not backlog religion." Skeptical, technical | Engineering-heavy workflows, pricing friction for half-time collaborators | Position as "fast task tracking for micro teams" with explicit no-sprint/no-roadmap surface |
-| Onboarding | Minimal desktop setup and first collaborative invite | Creates workspace, enters patch/client tasks, invites one collaborator | "If setup is instant, this can replace my spreadsheet." | Slow onboarding, mandatory process config, unclear permissions | Fast path to first status move and clear owner/member model without extra governance |
-| First value | List triage at start of deep-work block | Sorts by priority/due date, verifies assignee/status, picks next execution thread | "Great, I can start work now." Focused momentum | Morning archaeology across Discord/Slack/email; weak status semantics in spreadsheets | High-density list defaults optimized for quick prioritization and immediate action |
-| Core loop | Handoff and execution cycle across list/board/detail | Updates status via drag/drop, adds screenshots in detail, leaves async comments for partner | "We stay aligned without meetings." Efficient, low-friction collaboration | Sync drift between screens; context split between tools | Guarantee parity sync and make status transitions feel instant for context preservation |
-| Power use | Pre-deploy/pre-invoice quality pass | Uses filters/grouping by assignee to validate done vs blocked vs in review | "No ambiguity before we ship or bill." High-alert but controlled | Hidden blockers, stale ownership, missing evidence of completion | Add crisp blocker visibility patterns without introducing enterprise dashboards |
-| Advocacy | Community conversations with other dev-founders/freelancers | Recommends tool as practical middle ground between Trello simplicity and dev PM overhead | "This is the right-sized stack for tiny teams." | Perception that product is either too basic or too process-heavy | Own the "micro-team execution OS" narrative: fast, calm, and cost-fair collaboration |
+| Awareness | Comparing “dev tools” vs something lighter | Wants Linear-ish speed without rituals and backlogs | "Give me speed and clarity—not backlog religion." Skeptical | Heavy process built for big eng teams; pricing that hurts part-time help | Position as fast task tracking for pairs/trios—no sprints or roadmaps on the label |
+| Onboarding | First sit-down at the desk with a collaborator | Makes workspace, types real work items, sends one invite | "If this is instant, it can replace my spreadsheet." | Slow setup, forced “methodology,” fuzzy permissions | First status change in minutes; only owner vs member—no extra governance |
+| First value | Start of a focus block: triage the list | Sorts by priority or due date, checks owner and status, picks what to do next | "Good—I can actually start." Locked in | Hunting status across Discord, email, weak spreadsheet columns | List opens dense and ready: sort, scan, act without fiddling |
+| Core loop | Day-to-day with a partner: list, board, detail | Drags on the board, drops screenshots in the task, leaves comments | "We stay aligned without another meeting." | Screens out of sync; half the story in another app | Same task everywhere; status changes feel immediate |
+| Power use | Before ship or before sending the invoice | Filters or groups by person to see done vs stuck vs “in review” | "Nothing fuzzy before we bill or deploy." | Quiet blockers; wrong owner; no proof something finished | Clear “blocked” or risk cues without a full command-center dashboard |
+| Advocacy | Chatting with other tiny-team builders | Recommends it as the middle ground: not bare Trello, not Jira-for-20 | "Right-sized for how we actually work." | Seen as too toy-like or too heavy | Narrative: small team OS—fast, calm, fair on cost |
 
 ## Part B — Feature-level journeys (every feature)
 
-Each feature includes **Happy path (interactions)** (click/order level, aligned with [sitemap.md](../design/sitemap.md)), **Edge / recover**, a compact **Interaction flow (Mermaid)** diagram summarizing the same path, then the journey table (thoughts, pains, opportunities).
+Each feature is written in **plain language** first: what you actually click or tap, what to do when something goes wrong, then a small **diagram** of the same flow. Routes like `/list` match [sitemap.md](../design/sitemap.md). After that comes the **journey table** (feelings, pains, opportunities) for research depth.
 
 ### Feature: Unified task list view — Task Inbox/List
 
@@ -47,28 +47,28 @@ Each feature includes **Happy path (interactions)** (click/order level, aligned 
 
 **Happy path (interactions)**
 
-1. Land on **`/list`** (default after auth/onboarding or bookmark).
-2. Scan the dense table: title, status, assignee, priority columns and header sort indicator.
-3. Scroll the list body to review the queue; rely on row chips without opening detail.
-4. Optionally click a **row** (not the status chip) to open task detail as **`/list?task=[id]`** drawer.
-5. Optionally use **Filter** / **Sort** controls in the list toolbar (see dedicated features).
-6. Confirm teammate changes: row chips update when the same task moves on **`/board`** or in another tab (parity).
+1. Open your main task list (`/list`)—that’s where you land after sign-in, onboarding, or a bookmark.
+2. Read the table at a glance: task name, status, who it’s assigned to, priority, and how it’s sorted.
+3. Scroll through work; small labels on each row mean you often don’t need to open anything yet.
+4. When you need more context, click the **row** (not the colored status pill—that’s for quick status changes). A side panel opens with the task (`/list?task=…`).
+5. To narrow things down, use **Filter** or **Sort** in the toolbar (those flows are spelled out in their own sections).
+6. If someone else moves the same task on the board or in another tab, your row updates too—everyone sees one truth.
 
 **Edge / recover**
 
-- List feels wrong or empty after filters → use **Clear all filters** / chip dismiss (see Filter feature).
-- Row looks stale → focus tab or use list **refetch** when shipped; hard refresh as last resort.
+- Filters hid everything or the list feels “off”? Clear filters or remove filter chips until tasks come back.
+- Numbers look old? Click back into the tab, or use refresh when the app adds a refresh control; worst case, reload the page.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  L["/list"] --> S[Scan table]
-  S --> R{Open row?}
-  R -->|yes| D["Drawer ?task="]
-  R -->|no| F[Filter / Sort]
-  S --> P[Parity: board / tabs]
-  F --> C[Clear filters if stuck]
+  L[Open task list] --> S[Skim rows]
+  S --> R{Need details?}
+  R -->|yes| D[Open side panel]
+  R -->|no| F[Filter or sort]
+  S --> P[Teammate updates show here too]
+  F --> C[Stuck? Clear filters]
   D --> P
 ```
 
@@ -88,30 +88,30 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On **`/list`**, click **`+`** / quick-add control in the list header (sitemap: top inline quick-add).
-2. Quick-add row or popover opens; focus in **title** field.
-3. Type title; optionally set **assignee** / **status** if shown (defaults: To do, self when solo).
-4. Submit with **Enter** and/or primary **Create** (exact primary label TBD).
-5. New task row appears in the list (optimistic); URL stays **`/list`** unless you deep-link elsewhere.
-6. Confirm the same task appears on **`/board`** without refresh (parity).
+1. From the task list (`/list`), tap the **+** (or the quick-add strip at the top—same idea).
+2. A small add row or popover opens; your cursor is already in the **title** box.
+3. Type what the task is. If you see them, you can pick **who** it’s for and **status**—otherwise defaults apply (often “To do” and you when you’re alone).
+4. Press **Enter** or tap the main **Create** / **Add** button (final label follows the build).
+5. A new row appears right in the list; you’re still on the list page unless you opened something else on purpose.
+6. Peek at the **Board** view if you like—the same new task should be there without you refreshing.
 
 **Edge / recover**
 
-- Empty title on submit → inline validation; no new row.
-- Mistyped title after create → click row → drawer **`/list?task=[id]`** → edit title (autosave).
+- You tried to save with no title? The app should stop you gently and not add a ghost row.
+- Typo after it’s saved? Click that row, open the side panel (`/list?task=…`), and fix the title—it saves as you go.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  L["/list"] --> P[Click +]
-  P --> Q[Quick-add title focus]
-  Q --> T[Type optional assignee status]
-  T --> E[Enter / Create]
-  E --> R[New row]
-  R --> B["/board parity"]
-  E -.->|empty title| V[Inline validation]
-  R -.->|typo| D["Row ?task= edit"]
+  L[Task list] --> P[Tap plus]
+  P --> Q[Type title]
+  Q --> T[Optional who / status]
+  T --> E[Enter or Create]
+  E --> R[New row appears]
+  R --> B[Same card on Board]
+  E -.->|no title| V[Gentle error]
+  R -.->|typo| D[Open row fix title]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -130,27 +130,27 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On **`/list`**, locate the task row.
-2. Click the **status chip** / control on the row (not the whole row, if that opens detail).
-3. In the inline menu, choose **To do**, **In progress**, or **Done** (MVP fixed set).
-4. Selection applies immediately (no separate Save).
-5. Confirm chip updates on the row; if **`/board`** or drawer is open, same task updates there.
+1. On the list (`/list`), find the task you care about.
+2. Click the **small status control** on that row (the colored pill)—not the whole row if that opens the task panel.
+3. Pick **To do**, **In progress**, or **Done**. Those are the only three in the first version.
+4. It saves right away—no extra “Save” click.
+5. The label on the row updates; if you (or a teammate) have the board or the task panel open, they see the same change.
 
 **Edge / recover**
 
-- Wrong status picked → open chip again → pick correct status.
-- Mutation fails → chip rolls back + toast; retry from row.
+- Chose the wrong column? Open the menu again and pick the right one.
+- Internet hiccup? The chip should snap back and a short message asks you to try again.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  L["/list row"] --> C[Click status chip]
-  C --> M[Pick To do In progress Done]
-  M --> A[Apply no Save]
-  A --> P[Row + board + drawer sync]
-  M -.->|wrong| C
-  A -.->|API fail| T[Rollback + toast]
+  L[Find row] --> C[Tap status]
+  C --> M[Pick column]
+  M --> A[Saves instantly]
+  A --> P[Everyone sees same status]
+  M -.->|oops| C
+  A -.->|error| T[Undo chip + toast]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -169,27 +169,27 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On **`/list`**, click **Filter** in the list toolbar.
-2. In the filter popover, multi-select **status**, **assignee**, and/or **priority** (AND logic).
-3. Apply; list (and URL query `?status=&assignee=&priority=`) updates to the subset.
-4. Scan reduced rows; optional live count in UI when shipped.
-5. Understand relationship to **`/board`**: either same filters apply or UI states board is unfiltered (product rule).
+1. On the list (`/list`), open **Filter** in the toolbar.
+2. In the little panel, tick what you care about: **status**, **who it’s assigned to**, and/or **priority**. All picks apply together (narrower list).
+3. Apply. The list shrinks to matching tasks; the address bar can show those choices too (`?status=…&assignee=…`).
+4. Read the shorter list; a count of matches may appear when the product ships it.
+5. Board view might follow the same filters or stay wider—the UI should say which; pick what matches your mental model.
 
 **Edge / recover**
 
-- Zero results → zero-state copy + **Clear all filters**.
-- Board and list feel inconsistent → toggle “filters apply to board” or read inline explainer per spec.
+- Nothing matches? You’ll see a friendly empty state and a **clear all filters** escape hatch.
+- Board and list disagree? Use the “filters on board too” switch if we ship it, or read the one-line hint next to the filter.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  L["/list"] --> F[Filter toolbar]
-  F --> O[Popover multi-select]
-  O --> A[Apply + URL query]
-  A --> V[View subset]
-  A -.->|zero rows| Z[Clear all filters]
-  A -.->|vs board| X[Toggle or explainer]
+  L[Task list] --> F[Open filter]
+  F --> O[Tick boxes]
+  O --> A[Apply]
+  A --> V[See matching tasks]
+  A -.->|empty| Z[Clear filters]
+  A -.->|board mismatch| X[Read hint or toggle]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -208,27 +208,27 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On **`/list`**, open **Sort** in the list toolbar.
-2. Choose sort key: **due date**, **priority**, or **updated** (+ direction per control).
-3. List reorders; URL `sort=` reflects choice.
-4. Scan top of list for “next work” (e.g. due ascending).
-5. Tasks with null due date: expect **nulls last** + hint to add dates when sorting by due.
+1. On the list (`/list`), open **Sort** in the toolbar.
+2. Pick what to sort by: **due date**, **priority**, or **last updated**, and which way is “first” (up/down).
+3. Rows reshuffle; your choice can also show up in the URL (`sort=…`).
+4. Read from the top—that’s usually “what’s on fire next” when you sort by due date soonest-first.
+5. Tasks with no due date sink to the bottom in that mode, with a nudge to add a date if you want them in the race.
 
 **Edge / recover**
 
-- Wrong sort → open Sort again → pick another key (remember last choice per user when shipped).
-- Dates look wrong → verify workspace timezone under **`/settings/workspace`**.
+- Picked the wrong sort? Open the menu again and switch; the app may remember your last pick for you later.
+- Dates look shifted by a day? Check the workspace timezone under **Settings → Workspace** (`/settings/workspace`).
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  L["/list"] --> S[Sort menu]
-  S --> K[Pick key + direction]
-  K --> R[Reorder + sort= URL]
-  R --> T[Scan top of list]
-  K -.->|wrong key| S
-  R -.->|TZ wrong| W["/settings/workspace"]
+  L[Task list] --> S[Open sort]
+  S --> K[Pick column + direction]
+  K --> R[Rows reorder]
+  R --> T[Work from the top]
+  K -.->|wrong pick| S
+  R -.->|weird dates| W[Fix timezone in settings]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -247,25 +247,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. **Post-MVP:** when shipped, from desktop with app focused, press global shortcut (TBD, conflict-free).
-2. Quick-add surface focuses **title**.
-3. Type title → **Enter** to create (same as mouse quick-add commit).
-4. Confirm new row on **`/list`**.
+1. **Later release:** with the app window active, press a global keyboard shortcut (exact key TBD—we’ll avoid clashes with the OS).
+2. The same quick-add box appears with the cursor in **title**.
+3. Type the task, press **Enter**—same outcome as clicking + and saving.
+4. Confirm the new row landed on your list (`/list`).
 
 **Edge / recover**
 
-- Shortcut not built yet → use **`+`** quick-add only; no dead shortcut in empty state until shipped.
-- App not focused → shortcut does nothing; click app then **`+`**.
+- Shortcut not in the build yet? Use the normal **+** button; we shouldn’t tease a shortcut that doesn’t work.
+- Shortcut did nothing? The window wasn’t focused—click the app, then **+** or try again.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  K[Global shortcut post-MVP] --> Q[Quick-add title]
-  Q --> E[Enter creates task]
-  E --> L["/list row"]
-  K -.->|not shipped| P[Click + path]
-  K -.->|unfocused| P
+  K[Keyboard shortcut later] --> Q[Type title]
+  Q --> E[Enter saves]
+  E --> L[Row on list]
+  K -.->|not built| P[Use plus button]
+  K -.->|wrong focus| P
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -284,23 +284,23 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Click **Board** in the left sidebar → land on **`/board`**.
-2. See exactly three columns: **To do**, **In progress**, **Done** (labels match list statuses).
-3. Scan cards per column; optional column counts when shipped.
-4. No column setup before first card — columns are pre-built.
+1. In the left sidebar, choose **Board**—you land on the board page (`/board`).
+2. You always see **three** columns: **To do**, **In progress**, and **Done**—same words as on the list.
+3. Skim cards in each swim lane of work; optional little counts per column may show up later.
+4. You never “design” columns first—those three are already there.
 
 **Edge / recover**
 
-- Want custom status → not MVP; use title prefix / comment convention; feedback link from read-only explainer on **`/settings/workspace`**.
+- Need a fourth stage like “Client review”? Not in v1—add a hint in the title or a comment, and tell us via feedback from **Settings → Workspace** where we explain why it’s locked.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  N[Sidebar Board] --> B["/board"]
-  B --> C[Three columns To do In progress Done]
-  C --> V[Scan cards]
-  C -.->|custom later| S["/settings/workspace copy"]
+  N[Sidebar Board] --> B[Board page]
+  B --> C[Three fixed columns]
+  C --> V[Read cards]
+  C -.->|need more stages later| S[Read note in settings]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -319,30 +319,30 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On **`/board`**, pointer-down on a **card** in one column.
-2. Drag; watch column **drop highlights** + ghost.
-3. Release over target column (**To do** / **In progress** / **Done**).
-4. Card animates into column; status persists (optimistic, then confirmed).
-5. Confirm **`/list`** row and **`?task=`** drawer show the same status.
+1. On the board (`/board`), press the mouse on a **card** in any column.
+2. Drag it; the columns light up so you know where you can drop.
+3. Let go on **To do**, **In progress**, or **Done**—whichever matches reality.
+4. The card slides there right away; the server catches up a beat later.
+5. Check the list or an open task panel—the status text should match what you just chose.
 
 **Edge / recover**
 
-- Missed drop / invalid → card snaps back (no status change).
-- API error → rollback + toast.
-- Wrong column → drag card back or change status from **`/list`** inline chip.
-- Keyboard-only path → use list inline status or detail when drag alternative exists.
+- You missed the column? The card bounces home; nothing changed.
+- Save failed? Card returns and a toast explains it—try again.
+- Landed in the wrong column? Drag back or fix it from the list with the status pill.
+- Prefer keyboard? Use the list’s status menu or open the task—drag isn’t the only path.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  B["/board"] --> G[Grab card]
-  G --> D[Drag + highlights]
+  B[Board] --> G[Grab card]
+  G --> D[Drag]
   D --> O[Drop on column]
-  O --> S[Optimistic + confirm]
-  S --> L["/list parity"]
-  O -.->|miss| R[Snap back]
-  S -.->|error| T[Rollback + toast]
+  O --> S[Status updates]
+  S --> L[List matches]
+  O -.->|missed drop| R[Card returns]
+  S -.->|save failed| T[Toast + undo]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -361,26 +361,26 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open **`/list`** in one tab and **`/board`** in another (or list + drawer).
-2. On either surface, change a field (e.g. assignee in **`/list?task=[id]`** drawer).
-3. Switch focus to the other surface without full reload when possible.
-4. Confirm same **task id** shows identical **status** and **assignee** (and other surfaced fields).
+1. Keep the list open in one place and the board (or a task side panel) in another—tabs are fine.
+2. Change something real: owner, status, title—wherever you’re allowed to edit.
+3. Flip to the other view without refreshing the whole browser if you can.
+4. You should always read the **same** task: same person, same status, same headline.
 
 **Edge / recover**
 
-- Stale UI after idle → tab refocus triggers refetch when implemented.
-- Concurrent edit conflict → toast + soft refetch; rare last-write-wins per server rules.
+- Sat away for a while? Clicking back into the tab may refresh data when we wire that up.
+- Two people edit at once? You might see a polite “someone else changed this” message and a soft reload—rare, but honest.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  T1["Tab /list or /board"] --> E[Edit in drawer or detail]
-  E --> T2[Other surface]
-  T2 --> C{Fields match?}
-  C -->|yes| OK[Same task id]
-  C -.->|stale| R[Refetch / focus]
-  C -.->|conflict| X[Toast + soft refetch]
+  T1[List or board] --> E[Edit task]
+  E --> T2[Other view]
+  T2 --> C{Still matches?}
+  C -->|yes| OK[One truth]
+  C -.->|stale| R[Refocus tab]
+  C -.->|clash| X[Toast + reload]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -399,25 +399,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On **`/board`**, turn on **Group by assignee** (sets `?group=assignee` in sitemap).
-2. Within each status column, read **lanes**: owner first, then A–Z, plus **Unassigned**.
-3. Move work: either **drag card** to another lane if product allows, or open card/detail and change **assignee**.
-4. Confirm **`/list`** and drawer show the same assignee chip.
-5. Turn grouping **off** to return to a flat column view.
+1. On the board (`/board`), switch on **Group by person** (the link may show `?group=assignee`—that’s normal).
+2. Inside each status column you now see **lanes per teammate**: owner first, then everyone else A–Z, plus **Unassigned** when needed.
+3. To hand work off, either **drag** the card into someone else’s lane (if we ship that) or open the card and change **Assignee** the usual way.
+4. Check the list or a task side panel—the owner label should match the lane.
+5. Too noisy? Turn grouping **off** and you’re back to a flat three-column board.
 
 **Edge / recover**
 
-- Lane count overwhelming → toggle group off from the same control near List/Board switch.
+- Too many lanes on screen? Use the same toggle—grouping off—instantly simpler.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  B["/board"] --> G[Toggle group=assignee]
-  G --> L[Lanes per member]
-  L --> M[Drag lane or assign in detail]
-  M --> P["/list chip match"]
-  L --> O[Toggle off flat view]
+  B[Board] --> G[Group by person on]
+  G --> L[Lanes per teammate]
+  L --> M[Drag or change assignee]
+  M --> P[List matches owner]
+  L --> O[Grouping off]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -436,23 +436,23 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. **Post-MVP:** on **`/board`**, glance at **In progress** column header/badge when soft WIP shipped.
-2. Read advisory signal (e.g. tint / count vs threshold); no hard block.
-3. Team drags cards to **Done** to bring count under hint.
+1. **Later release:** on the board, you might see a **soft hint** when “In progress” is getting heavy—think color or a small count vs a gentle limit.
+2. It’s advice only: nobody is blocked from dragging more work in.
+3. The team finishes a few cards (**Done**) and the hint relaxes.
 
 **Edge / recover**
 
-- Not in MVP build → ignore; do not gate drag on WIP.
-- Signal feels wrong → ignore or hide per workspace when that setting exists.
+- Not in your build yet? Ignore it—drag should never be locked behind WIP in v1.
+- Hint feels wrong for your crew? Ignore it, or hide it per workspace when we add that preference.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  B["/board"] --> H[Column hint post-MVP]
-  H --> R[Advisory only]
-  R --> D[Drag to Done when ready]
-  H -.->|MVP off| B
+  B[Board] --> H[Soft overload hint later]
+  H --> R[Guidance not a gate]
+  R --> D[Finish work Done column]
+  H -.->|not shipped| B
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -471,26 +471,26 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. From **`/list`** or **`/board`**, click task row/card → **`?task=[id]`** drawer **or** open **`/tasks/[taskId]`** from a link.
-2. In detail header/body, focus **title** and/or **description** (plain text MVP).
-3. Type edits; wait for **debounced autosave** (or explicit save if that’s the shipped pattern).
-4. Confirm **Saved** / relative saved time in chrome.
+1. From the list or board, open a task—either the **side panel** (`?task=…` in the URL) or the **full-page** link someone sent you (`/tasks/…`).
+2. Click into the **title** or **description** boxes (plain text in the first version).
+3. Type; the app saves quietly in the background after you pause typing (or uses a clear Save button—whichever we ship).
+4. Look for a small **“Saved”** cue so you know it stuck.
 
 **Edge / recover**
 
-- Save fails → inline **Retry** from error banner.
-- Opened wrong task → **Esc** closes drawer or **Back** from full page → return to list/board.
+- Save failed? Tap **Retry** on the error strip—your words shouldn’t vanish silently.
+- Wrong task? Press **Esc** to close the panel, or **Back** on the full page, and you’re where you were.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  O["Row or card click"] --> D["Drawer or /tasks/id"]
-  D --> E[Edit title description]
+  O[Open task] --> D[Side panel or full page]
+  D --> E[Edit title or notes]
   E --> A[Autosave]
-  A --> S[Saved indicator]
-  A -.->|fail| R[Retry banner]
-  D -.->|wrong| X[Esc / Back]
+  A --> S[Saved hint]
+  A -.->|error| R[Retry]
+  D -.->|oops wrong one| X[Esc or Back]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -509,25 +509,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open task detail (drawer **`/list?task=[id]`** / **`/board?task=[id]`** or **`/tasks/[id]`**).
-2. Open **Assignee** dropdown → pick a workspace **member** (MVP: members only).
-3. Set **Priority** control to the desired level.
-4. Confirm autosave (or save) and updated chips on list/board behind the drawer.
+1. Open the task—panel from list/board or full page link.
+2. Open **Who’s on this?** (assignee) and pick someone who’s already in the workspace (guest assignees come later).
+3. Set **How urgent?** (priority) if you use that signal.
+4. It saves; close or peek behind the panel and you’ll see the same chips on list and board.
 
 **Edge / recover**
 
-- Wrong assignee → reopen dropdown → pick another member.
+- Picked the wrong person? Open the menu again and choose the right teammate.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  D[Task detail] --> U[Assignee dropdown]
-  U --> M[Pick member MVP]
-  M --> P[Set priority]
-  P --> S[Autosave]
-  S --> C["List / board chips"]
-  U -.->|wrong| U
+  D[Task open] --> U[Who is assigned]
+  U --> M[Pick teammate]
+  M --> P[Set urgency]
+  P --> S[Saves]
+  S --> C[Chips update everywhere]
+  U -.->|mistake| U
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -546,23 +546,23 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open task detail.
-2. Click **Due date** control → date picker opens (workspace timezone per **`/settings/workspace`**).
-3. Pick a date or **clear** date.
-4. Confirm compact due label on **`/list`** row when sorted/filtered by due.
+1. Open the task.
+2. Tap **Due date**—a calendar pops up using the workspace’s timezone (set under **Settings → Workspace**).
+3. Choose a day, or clear it if “no date” is honest.
+4. Back on the list, you should see a tiny due hint on the row when dates matter for sort/filter.
 
 **Edge / recover**
 
-- Client changes date → reopen picker and adjust.
+- Client moved the meeting? Open the same control and pick the new day.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  D[Task detail] --> P[Due date control]
-  P --> C[Calendar pick or clear]
-  C --> S[Save]
-  S --> L["/list compact due"]
+  D[Task open] --> P[Due date]
+  P --> C[Pick or clear day]
+  C --> S[Saves]
+  S --> L[Shows on list row]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -581,26 +581,26 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open task detail → scroll to **Attachments** / image section.
-2. Click **dropzone** or **Choose file** → pick image within allowed type/size.
-3. Watch **progress**; optional **Cancel** while uploading.
-4. Confirm **thumbnail** in grid; click to **lightbox** preview.
+1. Open the task and scroll to **Pictures / attachments**.
+2. Drag a file onto the box or tap **Choose file**—images only, within the size/type rules shown.
+3. Watch the **progress bar**; you can **Cancel** mid-upload if you picked the wrong thing.
+4. When it lands, tap a **thumbnail** to preview it large (“lightbox”).
 
 **Edge / recover**
 
-- Upload fails (size/network) → error + **Retry**.
-- Wrong file → **Delete** attachment → confirm dialog when shipped.
+- Upload failed (too big or offline)? Read the error and hit **Try again**.
+- Wrong image saved? **Delete** it—may ask “are you sure?” so nobody nukes proof by accident.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  D[Task detail] --> A[Attachments section]
-  A --> F[Choose file / drop]
-  F --> U[Upload progress]
-  U --> T[Thumbnails + lightbox]
-  U -.->|fail| R[Retry]
-  T -.->|wrong file| DEL[Delete confirm]
+  D[Task open] --> A[Attachments]
+  A --> F[Pick or drop image]
+  F --> U[Upload bar]
+  U --> T[Thumbnails tap to zoom]
+  U -.->|failed| R[Retry]
+  T -.->|wrong file| DEL[Delete with confirm]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -619,26 +619,26 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open task detail → scroll to **Comments**.
-2. Read thread (chronological; author + time).
-3. Type in composer → click **Send** / submit.
-4. See new comment append (optimistic bubble until confirmed).
+1. Open the task and scroll to **Comments**.
+2. Read the thread—newest or oldest first stays consistent; each line shows who wrote it and when.
+3. Type in the box at the bottom, then **Send**.
+4. Your note appears in the thread right away, then firms up when the server says OK.
 
 **Edge / recover**
 
-- Typo shortly after send → **Edit** within short window or **Delete** per MVP rules.
-- Send fails → error on bubble + **Retry**.
+- Fat-fingered right after sending? **Edit** or **Delete** inside the short grace window we allow in v1.
+- Send didn’t go through? You’ll see a small error on that bubble—tap **Retry**.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  D[Task detail] --> C[Comments thread]
-  C --> W[Composer type]
+  D[Task open] --> C[Comments]
+  C --> W[Write note]
   W --> S[Send]
-  S --> L[Append comment]
-  S -.->|fail| E[Retry on bubble]
-  L -.->|typo window| EDIT[Edit or delete]
+  S --> L[Shows in thread]
+  S -.->|failed| E[Retry]
+  L -.->|typo| EDIT[Edit or delete]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -657,22 +657,22 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. **Post-MVP:** open task detail → expand **Subtasks / checklist** section when shipped.
-2. Add checklist lines; check/uncheck items.
-3. See progress on parent (optional list row chip when shipped).
+1. **Later release:** inside the task, open a **Checklist / subtasks** block when we ship it.
+2. Add lines, tick them off as you go—like a mini to-do inside one card.
+3. Optional: the parent row on the list may show “3/5 done” style progress.
 
 **Edge / recover**
 
-- MVP without subtasks → use **description** headings / bullets as workaround.
+- Not in your build yet? Use the **description** field with simple bullet lines instead—it’s the honest workaround today.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  D[Task detail] --> X{Subtasks shipped?}
-  X -->|post-MVP| K[Checklist add check]
-  K --> PR[Progress chip]
-  X -.->|MVP| DESC[Description bullets]
+  D[Task open] --> X{Checklists shipped?}
+  X -->|later| K[Add tick lines]
+  K --> PR[Progress on card]
+  X -.->|now| DESC[Use description bullets]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -691,26 +691,26 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open **`/settings/team`** (sidebar **Team** / empty-state CTA per sitemap).
-2. Click **Invite** (or equivalent).
-3. In modal: choose **email invite** and/or **copy invite link**; verify workspace name + inviter shown.
-4. Submit send or copy link → share out-of-band.
-5. Confirm **pending invite** row appears in team table.
+1. Go to **Settings → Team** (`/settings/team`)—or tap **Team** from the sidebar / empty-state hint.
+2. Press **Invite someone**.
+3. In the window: type their email **or** copy a **share link**—you should always see which workspace they’re joining and who invited them.
+4. Send the email or paste the link in Slack/text yourself.
+5. Back in the table, you’ll see a **Pending** row until they accept.
 
 **Edge / recover**
 
-- Wrong email → **Revoke** + create new invite (owner).
-- Rate-limited resend → wait for cooldown copy.
+- Wrong address? **Revoke** that invite and send a fresh one (owner only).
+- Hit a “slow down” message on resend? That’s rate-limit protection—wait the seconds it says, then try again.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  S["/settings/team"] --> I[Invite]
-  I --> M[Modal email or link]
-  M --> N[Send or copy]
-  N --> P[Pending invite row]
-  N -.->|wrong email| R[Revoke + re-invite]
+  S[Team settings] --> I[Invite]
+  I --> M[Email or copy link]
+  M --> N[Send]
+  N --> P[Shows as pending]
+  N -.->|typo| R[Revoke and redo]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -729,25 +729,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. As **owner**, open **`/settings/team`**.
-2. Locate member row → open **role** control (Owner vs Member).
-3. If demoting/promoting, confirm in **modal** when required.
-4. Confirm badge updates; member’s task permissions follow MVP rule (members edit tasks).
+1. As the **workspace owner**, open **Settings → Team**.
+2. Find the person in the table and open the **Role** menu—only two choices: **Owner** or **Member**.
+3. If you’re taking owner powers away from someone, confirm in the dialog when asked.
+4. Badges update; in v1 **members can still edit tasks**—owners mainly control billing/settings later.
 
 **Edge / recover**
 
-- Member row should not expose owner-only actions → read-only or hidden per role.
-- Cannot remove last owner → blocked with explainer.
+- Logged in as a **member**? You’ll see the team list but not the dangerous owner buttons.
+- Can’t delete the last owner—the app stops you with a clear sentence.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  S["/settings/team"] --> T[Member table]
-  T --> R[Role Owner vs Member]
-  R --> C[Confirm if demote]
-  C --> B[Badge update]
-  R -.->|last owner| X[Block + copy]
+  S[Team settings] --> T[People table]
+  T --> R[Owner or Member]
+  R --> C[Confirm big change]
+  C --> B[Labels update]
+  R -.->|last owner| X[Blocked with why]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -766,25 +766,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open **`/settings/team`**.
-2. Scan **Invites** list: chips for **Pending** / **Accepted** / **Expired** + timestamps/countdown when shipped.
-3. For pending: click **Resend** or **Copy link** within rate limits.
-4. When invitee accepts, see row flip to **member** with avatar.
+1. Open **Settings → Team**.
+2. Scroll the **Invites** area—each row is labeled **Pending**, **Accepted**, or **Expired**, with times (and maybe a countdown until expiry).
+3. Still waiting on someone? **Resend** the email or **Copy link** again—within fair use limits.
+4. When they join, the row becomes a normal **member** with their avatar.
 
 **Edge / recover**
 
-- Expired → **Regenerate** / new invite flow per spec.
-- Stuck pending after accept → refocus page to poll; support if still broken.
+- Link died? Use **Make a new link** / regenerate invite—no need to ping support for a fresh token.
+- Stuck on “Pending” even after they joined? Refresh the page; if it’s still wrong, that’s a bug to flag.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  S["/settings/team"] --> L[Invites list + chips]
-  L --> A[Resend or copy link]
-  A --> P[Pending]
-  P --> K[Accepted member row]
-  P -.->|expired| G[Regenerate invite]
+  S[Team settings] --> L[Invite list]
+  L --> A[Resend or copy]
+  A --> P[Waiting]
+  P --> K[Joined member]
+  P -.->|expired| G[New invite]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -803,24 +803,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. **Post-MVP:** from share entry point, open **Share read-only** dialog.
-2. Generate **client link** with read-only badge visible in UI.
-3. **Copy link** → send to client.
-4. Client opens link → **`/list`** / **`/board`** (or scoped view) in read-only mode.
+1. **Later:** you’ll get a **Share with client (view only)** entry point somewhere sensible.
+2. The app makes a **read-only link**—the screen should scream “they can’t edit.”
+3. **Copy**, paste into an email to the client.
+4. They open it and see list/board **without** edit powers.
 
 **Edge / recover**
 
-- MVP: no client link → export/screenshot workaround from marketing copy.
-- Revoke access → **Revoke token** in list when shipped.
+- **Today’s MVP:** there is no magic client link—export a screenshot or PDF if you need to show status.
+- When links exist, you can **Revoke** them from a list if the client shouldn’t see anymore.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  X{Post-MVP} --> SH[Share read-only]
-  SH --> L[Copy client link]
-  L --> V[Client read-only view]
-  SH -.->|MVP| SS[Screenshot export]
+  X{Client links shipped?}
+  X -->|yes| SH[Share view-only]
+  SH --> L[Copy link]
+  L --> V[Client reads only]
+  X -.->|not yet| SS[Screenshot workaround]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -839,27 +840,26 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. From **`/register`** (or **`/login`**): submit email → complete **magic link** from inbox.
-2. First sign-in with no workspace → **`/onboarding/workspace`**: enter **workspace name**, confirm **timezone** → **Continue**.
-3. **`/onboarding/first-task`**: enter first **task title** (optional assignee/status per screen) → **Create** (or **Skip**).
-4. Land on **`/list`** with task row if created, or checklist empty state if skipped.
+1. Start at **Sign up** or **Log in**, type your email, click the **magic link** in your inbox—no password to remember.
+2. First time in with no workspace yet? Name your **workspace**, double-check **timezone**, hit **Continue**.
+3. Next screen: type a **first task** title (you can tweak who it’s for if we show that)—**Create** it, or **Skip** if you just want to look around.
+4. You land on the **task list**—either with that first row, or with the friendly empty checklist if you skipped.
 
 **Edge / recover**
 
-- Validation on empty workspace name or empty task title → inline errors.
-- Workspace name typo later → **`/settings/workspace`** → rename.
+- Left the workspace name blank or tried to save an empty task title? Inline red text tells you what’s missing.
+- Named the company wrong? Fix it anytime under **Settings → Workspace**.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  R["/register or /login"] --> M[Magic link]
-  M --> W["/onboarding/workspace"]
-  W --> F["/onboarding/first-task"]
-  F --> C[Create or Skip]
-  C --> L["/list"]
-  W -.->|validation| W
-  F -.->|empty title| F
+  R[Sign up or log in] --> M[Magic link email]
+  M --> W[Name workspace]
+  W --> F[First task or skip]
+  F --> C[Land on list]
+  W -.->|fix errors| W
+  F -.->|fix errors| F
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -878,24 +878,24 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Land on **`/list`** (or **`/board`**) with **zero tasks** and first-use flag.
-2. Read compact checklist (max ~3 CTAs): e.g. **Add first task**, **Move a status**, **Invite teammate**.
-3. Click each CTA in sequence (or skip invite); each routes to the real control (quick-add, board/list, **`/settings/team`**).
-4. After at least one task exists, empty illustration/checklist **dismisses**; if user deletes all tasks, gentle hint may return.
+1. You open the list or board and it’s **empty** on purpose—first day in the product.
+2. You see a **short checklist** (think three buttons max): add a task, move something on the board, maybe invite someone.
+3. Tap each suggestion—it jumps you to the real control (plus button, board, **Team** settings)—no fake demo data forced on you.
+4. Once there’s at least one real task, the big empty illustration goes away; if you delete everything again, we may show a softer hint.
 
 **Edge / recover**
 
-- Skipped invite → open **Team** from sidebar later — no punitive copy.
+- Skipped the invite step? No guilt trip—open **Team** from the sidebar whenever you’re ready.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  L["/list empty"] --> E[Empty checklist CTAs]
+  L[Empty list] --> E[Three friendly CTAs]
   E --> A[Add task]
-  E --> B[Move status]
-  E --> T["Invite Team"]
-  A --> D[Dismiss when tasks exist]
+  E --> B[Move on board]
+  E --> T[Invite people]
+  A --> D[Screen clears when you have tasks]
   E -.->|skipped invite| T
 ```
 
@@ -915,22 +915,22 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. **Post-MVP:** on empty state, click **Use template** when shipped.
-2. Pick preset (e.g. one freelance starter).
-3. Confirm tasks inserted; optional **demo tasks** banner + bulk delete.
+1. **Later:** from the empty screen, tap **Start from a template** when we ship it.
+2. Pick something small—like a “freelance week one” starter—not a library of 50 templates.
+3. Tasks appear in your workspace; we may label them as **demo** so you can bulk-delete if you don’t want them.
 
 **Edge / recover**
 
-- Until shipped → only manual **Add task** from empty state.
+- **Today:** templates aren’t there yet—just tap **Add task** and type your own.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  E[Empty state] --> X{Template shipped?}
-  X -->|yes| P[Pick preset]
-  P --> I[Insert tasks]
-  X -.->|MVP| M[Manual add task]
+  E[Empty screen] --> X{Templates ready?}
+  X -->|yes| P[Pick starter pack]
+  P --> I[Tasks appear]
+  X -.->|not yet| M[Add your own task]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -949,25 +949,25 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Avatar / **Settings** → **`/settings/workspace`** (owner only for edits).
-2. Edit **Workspace name** and/or **Timezone** fields.
-3. **Save** (or autosave with feedback per implementation).
-4. Return to **`/list`** and confirm due labels / sorts respect new timezone.
+1. Click your **avatar** (or **Settings**), then **Workspace**—that’s `/settings/workspace`.
+2. Change how the workspace is **named** or which **timezone** dates should follow.
+3. Hit **Save** (or we autosave and tell you—same outcome).
+4. Go back to the list—due dates and sorts should now “feel” right for your region.
 
 **Edge / recover**
 
-- Member hits page → **Owner only** locked card / read-only per sitemap.
-- Invalid name → inline validation before save.
+- Not the owner? You can read the page but editing is locked—that’s intentional.
+- Empty name? We block save until you type something sensible.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  A[Avatar Settings] --> W["/settings/workspace"]
-  W --> E[Edit name timezone]
+  A[Settings menu] --> W[Workspace page]
+  W --> E[Change name or timezone]
   E --> S[Save]
-  S --> L["/list due labels"]
-  W -.->|member| RO[Owner only locked]
+  S --> L[Due dates make sense]
+  W -.->|not owner| RO[View only]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -986,21 +986,21 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. Open **`/settings/workspace`**.
-2. Read **read-only** explainer: three statuses locked for MVP.
-3. Optional: click **Send feedback** / link to request future columns.
+1. Still on **Settings → Workspace**.
+2. Read the short note: **only three statuses** exist in v1—To do, In progress, Done—and you can’t rename them yet.
+3. If you’re itching for a fourth stage, use the **feedback** link—we want to hear it without pretending the toggle works today.
 
 **Edge / recover**
 
-- Need “Client review” today → use **title prefix** or **comment** convention; no hidden fourth column toggle.
+- Need something like “Client review” right now? Add it to the **task title** (`[Review] …`) or drop a **comment**—no secret fourth column hiding in settings.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  W["/settings/workspace"] --> R[Read-only 3 statuses]
-  R --> F[Feedback link optional]
-  R -.->|need extra stage| C[Title prefix convention]
+  W[Workspace settings] --> R[Read three statuses]
+  R --> F[Optional feedback]
+  R -.->|need more nuance now| C[Title tag or comment]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -1019,25 +1019,24 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. On session milestone (or time-based rule), **banner/modal** surfaces donation ask.
-2. Read neutral copy → click **Dismiss** to continue task work unblocked.
-3. Or click **Donate** → external flow → return to app.
-4. Optional: open **`/settings/donation`** later to donate or tune reminder cadence.
+1. After you’ve been productive for a while (or on a calm timer), a **small banner or modal** may ask if you’d like to support the product.
+2. Read it—it should sound optional, not scary—and either **Dismiss** and keep working, or **Donate** and we send you through a payment page, then you land back here.
+3. Want to chip in later? **Settings → Donation** is always there for amount or reminder cadence.
 
 **Edge / recover**
 
-- Dismiss should not reappear aggressively; cooldown per policy.
+- If you dismiss it, we shouldn’t nag you again in the next five minutes—cooldowns keep it respectful.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  M[Session milestone] --> B[Banner or modal]
-  B --> D[Dismiss]
-  B --> N[Donate external]
-  D --> W[Continue tasks]
+  M["After a good session"] --> B[Gentle ask]
+  B --> D[Not now]
+  B --> N[Support us]
+  D --> W[Keep working]
   N --> W
-  W --> S["/settings/donation later"]
+  W --> S[Donation settings anytime]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
@@ -1056,23 +1055,23 @@ flowchart LR
 
 **Happy path (interactions)**
 
-1. **Post-MVP / placeholder:** open **`/settings/notifications`**.
-2. Read MVP **defaults** + “controls coming soon” if that’s shipped copy.
-3. When toggles exist: flip categories (mentions, assignments, digest) → **Save**.
+1. Open **Settings → Notifications** (`/settings/notifications`).
+2. Early builds may just explain **what emails you get today** and say richer controls are coming—read it once so expectations match reality.
+3. When switches appear: turn types of email on or off (mentions, assignments, digest, etc.), then **Save**.
 
 **Edge / recover**
 
-- Missed email after muting → re-enable category; use **task comments** as backstop.
+- Turned something off and missed news? Flip that category back on—and remember **comments on the task** still carry the story if mail failed.
 
 **Interaction flow (Mermaid)**
 
 ```mermaid
 flowchart LR
-  S["/settings/notifications"] --> R[Read MVP defaults]
-  R --> T{Toggles shipped?}
-  T -->|yes| F[Flip categories Save]
-  T -.->|placeholder| C[Coming soon copy]
-  F -.->|missed| RE[Re-enable]
+  S[Notification settings] --> R[Read current rules]
+  R --> T{Switches exist?}
+  T -->|yes| F[Toggle + save]
+  T -.->|not yet| C[Explainer only]
+  F -.->|too quiet| RE[Turn category back on]
 ```
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
