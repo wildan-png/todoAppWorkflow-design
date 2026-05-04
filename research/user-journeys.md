@@ -37,11 +37,27 @@
 
 ## Part B — Feature-level journeys (every feature)
 
+Each feature includes **Happy path (interactions)** (click/order level, aligned with [sitemap.md](../design/sitemap.md)) and **Edge / recover**, then the journey table (thoughts, pains, opportunities).
+
 ### Feature: Unified task list view — Task Inbox/List
 
 - **Label:** core
 - **Primary persona:** Jordan Reyes — morning triage across clients; list is the default throughput surface.
 - **JTBD refs:** #2 (one desktop view, status+owner, not Slack/spreadsheet archaeology); #3 (focused scope vs bloated PM)
+
+**Happy path (interactions)**
+
+1. Land on **`/list`** (default after auth/onboarding or bookmark).
+2. Scan the dense table: title, status, assignee, priority columns and header sort indicator.
+3. Scroll the list body to review the queue; rely on row chips without opening detail.
+4. Optionally click a **row** (not the status chip) to open task detail as **`/list?task=[id]`** drawer.
+5. Optionally use **Filter** / **Sort** controls in the list toolbar (see dedicated features).
+6. Confirm teammate changes: row chips update when the same task moves on **`/board`** or in another tab (parity).
+
+**Edge / recover**
+
+- List feels wrong or empty after filters → use **Clear all filters** / chip dismiss (see Filter feature).
+- Row looks stale → focus tab or use list **refetch** when shipped; hard refresh as last resort.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -57,6 +73,20 @@
 - **Primary persona:** Priya Nair — captures client asks mid-review without breaking flow.
 - **JTBD refs:** #2 (fast capture at start of day); #3 (low ceremony vs enterprise create dialogs)
 
+**Happy path (interactions)**
+
+1. On **`/list`**, click **`+`** / quick-add control in the list header (sitemap: top inline quick-add).
+2. Quick-add row or popover opens; focus in **title** field.
+3. Type title; optionally set **assignee** / **status** if shown (defaults: To do, self when solo).
+4. Submit with **Enter** and/or primary **Create** (exact primary label TBD).
+5. New task row appears in the list (optimistic); URL stays **`/list`** unless you deep-link elsewhere.
+6. Confirm the same task appears on **`/board`** without refresh (parity).
+
+**Edge / recover**
+
+- Empty title on submit → inline validation; no new row.
+- Mistyped title after create → click row → drawer **`/list?task=[id]`** → edit title (autosave).
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | List top bar or persistent "+" | Decides to log new deliverable while on a call | "If I don’t capture this now, it lives in Slack." | Buried create button; modal with 12 fields | Single obvious quick-add anchored to list |
@@ -70,6 +100,19 @@
 - **Label:** core
 - **Primary persona:** Miguel Santos — updates status without leaving keyboard flow.
 - **JTBD refs:** #5 (fast status move before deadline; stays in sync with board/detail)
+
+**Happy path (interactions)**
+
+1. On **`/list`**, locate the task row.
+2. Click the **status chip** / control on the row (not the whole row, if that opens detail).
+3. In the inline menu, choose **To do**, **In progress**, or **Done** (MVP fixed set).
+4. Selection applies immediately (no separate Save).
+5. Confirm chip updates on the row; if **`/board`** or drawer is open, same task updates there.
+
+**Edge / recover**
+
+- Wrong status picked → open chip again → pick correct status.
+- Mutation fails → chip rolls back + toast; retry from row.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -85,6 +128,19 @@
 - **Primary persona:** Jordan Reyes — pre-milestone slice: "what does this contractor owe?"
 - **JTBD refs:** #2 (narrow to execution context); #4 (clarity for micro-team without dashboards)
 
+**Happy path (interactions)**
+
+1. On **`/list`**, click **Filter** in the list toolbar.
+2. In the filter popover, multi-select **status**, **assignee**, and/or **priority** (AND logic).
+3. Apply; list (and URL query `?status=&assignee=&priority=`) updates to the subset.
+4. Scan reduced rows; optional live count in UI when shipped.
+5. Understand relationship to **`/board`**: either same filters apply or UI states board is unfiltered (product rule).
+
+**Edge / recover**
+
+- Zero results → zero-state copy + **Clear all filters**.
+- Board and list feel inconsistent → toggle “filters apply to board” or read inline explainer per spec.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | List grows past ~15 mixed-client tasks | Opens filter control in list toolbar | "I only care about In progress + Alex today." | Export to spreadsheet workaround | Filter chips persistent but dismissible |
@@ -98,6 +154,19 @@
 - **Label:** supporting
 - **Primary persona:** Miguel Santos — starts deep-work block with highest leverage thread.
 - **JTBD refs:** #2 (re-order workload for execution clarity)
+
+**Happy path (interactions)**
+
+1. On **`/list`**, open **Sort** in the list toolbar.
+2. Choose sort key: **due date**, **priority**, or **updated** (+ direction per control).
+3. List reorders; URL `sort=` reflects choice.
+4. Scan top of list for “next work” (e.g. due ascending).
+5. Tasks with null due date: expect **nulls last** + hint to add dates when sorting by due.
+
+**Edge / recover**
+
+- Wrong sort → open Sort again → pick another key (remember last choice per user when shipped).
+- Dates look wrong → verify workspace timezone under **`/settings/workspace`**.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -113,6 +182,18 @@
 - **Primary persona:** Miguel Santos — expects desktop shortcuts; minimal mouse.
 - **JTBD refs:** #2 (capture without leaving flow)
 
+**Happy path (interactions)**
+
+1. **Post-MVP:** when shipped, from desktop with app focused, press global shortcut (TBD, conflict-free).
+2. Quick-add surface focuses **title**.
+3. Type title → **Enter** to create (same as mouse quick-add commit).
+4. Confirm new row on **`/list`**.
+
+**Edge / recover**
+
+- Shortcut not built yet → use **`+`** quick-add only; no dead shortcut in empty state until shipped.
+- App not focused → shortcut does nothing; click app then **`+`**.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Mid-typing in IDE or email | Hits global shortcut (when implemented) | "Open capture now." | Shortcut conflicts with OS/browser | **Post-MVP** per modules-features §4; document conflict-free default when shipped |
@@ -126,6 +207,17 @@
 - **Label:** core
 - **Primary persona:** Priya Nair — board is pipeline ritual for studio.
 - **JTBD refs:** #3 (To do / In progress / Done without hierarchy theater); #5 (deadline alignment)
+
+**Happy path (interactions)**
+
+1. Click **Board** in the left sidebar → land on **`/board`**.
+2. See exactly three columns: **To do**, **In progress**, **Done** (labels match list statuses).
+3. Scan cards per column; optional column counts when shipped.
+4. No column setup before first card — columns are pre-built.
+
+**Edge / recover**
+
+- Want custom status → not MVP; use title prefix / comment convention; feedback link from read-only explainer on **`/settings/workspace`**.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -141,6 +233,21 @@
 - **Primary persona:** Priya Nair — moves creative tasks visually before client review.
 - **JTBD refs:** #5 (drag board that syncs with list/detail)
 
+**Happy path (interactions)**
+
+1. On **`/board`**, pointer-down on a **card** in one column.
+2. Drag; watch column **drop highlights** + ghost.
+3. Release over target column (**To do** / **In progress** / **Done**).
+4. Card animates into column; status persists (optimistic, then confirmed).
+5. Confirm **`/list`** row and **`?task=`** drawer show the same status.
+
+**Edge / recover**
+
+- Missed drop / invalid → card snaps back (no status change).
+- API error → rollback + toast.
+- Wrong column → drag card back or change status from **`/list`** inline chip.
+- Keyboard-only path → use list inline status or detail when drag alternative exists.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Stand-up or async review on board | Grabs card | "Move means progress." | Drag disabled on desktop | Hit targets meet WCAG AA intent per brief |
@@ -154,6 +261,18 @@
 - **Label:** core
 - **Primary persona:** Jordan Reyes — contractor on board, Jordan on list.
 - **JTBD refs:** #5 (same tasks/statuses/owners); #2 (single picture)
+
+**Happy path (interactions)**
+
+1. Open **`/list`** in one tab and **`/board`** in another (or list + drawer).
+2. On either surface, change a field (e.g. assignee in **`/list?task=[id]`** drawer).
+3. Switch focus to the other surface without full reload when possible.
+4. Confirm same **task id** shows identical **status** and **assignee** (and other surfaced fields).
+
+**Edge / recover**
+
+- Stale UI after idle → tab refocus triggers refetch when implemented.
+- Concurrent edit conflict → toast + soft refetch; rare last-write-wins per server rules.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -169,6 +288,18 @@
 - **Primary persona:** Jordan Reyes — sees per-person load inside each status.
 - **JTBD refs:** #1 (who owes what without seat overhead); #5 (deadline coordination)
 
+**Happy path (interactions)**
+
+1. On **`/board`**, turn on **Group by assignee** (sets `?group=assignee` in sitemap).
+2. Within each status column, read **lanes**: owner first, then A–Z, plus **Unassigned**.
+3. Move work: either **drag card** to another lane if product allows, or open card/detail and change **assignee**.
+4. Confirm **`/list`** and drawer show the same assignee chip.
+5. Turn grouping **off** to return to a flat column view.
+
+**Edge / recover**
+
+- Lane count overwhelming → toggle group off from the same control near List/Board switch.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Multiple contractors active | Toggles group-by assignee on board | "Whose In progress is bloated?" | Only manual scanning | MVP-essential per modules-features §4 |
@@ -182,6 +313,17 @@
 - **Label:** nice-to-have
 - **Primary persona:** Miguel Santos — wants gentle overload signal without enterprise WIP config.
 - **JTBD refs:** #2 (execution clarity); #5 (pre-deadline triage)
+
+**Happy path (interactions)**
+
+1. **Post-MVP:** on **`/board`**, glance at **In progress** column header/badge when soft WIP shipped.
+2. Read advisory signal (e.g. tint / count vs threshold); no hard block.
+3. Team drags cards to **Done** to bring count under hint.
+
+**Edge / recover**
+
+- Not in MVP build → ignore; do not gate drag on WIP.
+- Signal feels wrong → ignore or hide per workspace when that setting exists.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -197,6 +339,18 @@
 - **Primary persona:** Priya Nair — writes creative brief fragments on the task.
 - **JTBD refs:** #3 (task identity without wiki); #4 (client-ready clarity)
 
+**Happy path (interactions)**
+
+1. From **`/list`** or **`/board`**, click task row/card → **`?task=[id]`** drawer **or** open **`/tasks/[taskId]`** from a link.
+2. In detail header/body, focus **title** and/or **description** (plain text MVP).
+3. Type edits; wait for **debounced autosave** (or explicit save if that’s the shipped pattern).
+4. Confirm **Saved** / relative saved time in chrome.
+
+**Edge / recover**
+
+- Save fails → inline **Retry** from error banner.
+- Opened wrong task → **Esc** closes drawer or **Back** from full page → return to list/board.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Clicks row from list/board | Detail panel/page opens | "Context lives here." | Full navigation away losing list position | Split pane or overlay preserving list scroll |
@@ -210,6 +364,17 @@
 - **Label:** core
 - **Primary persona:** Jordan Reyes — assigns rotating contractor.
 - **JTBD refs:** #1 (shared assignees without seat drama); #4 (urgency + ownership visible)
+
+**Happy path (interactions)**
+
+1. Open task detail (drawer **`/list?task=[id]`** / **`/board?task=[id]`** or **`/tasks/[id]`**).
+2. Open **Assignee** dropdown → pick a workspace **member** (MVP: members only).
+3. Set **Priority** control to the desired level.
+4. Confirm autosave (or save) and updated chips on list/board behind the drawer.
+
+**Edge / recover**
+
+- Wrong assignee → reopen dropdown → pick another member.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -225,6 +390,17 @@
 - **Primary persona:** Priya Nair — ties tasks to client review dates.
 - **JTBD refs:** #5 (deadline / invoice window planning)
 
+**Happy path (interactions)**
+
+1. Open task detail.
+2. Click **Due date** control → date picker opens (workspace timezone per **`/settings/workspace`**).
+3. Pick a date or **clear** date.
+4. Confirm compact due label on **`/list`** row when sorted/filtered by due.
+
+**Edge / recover**
+
+- Client changes date → reopen picker and adjust.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Client sends date | Opens detail date field | "This drives sort." | Date buried | Datepicker near title block |
@@ -238,6 +414,18 @@
 - **Label:** supporting
 - **Primary persona:** Priya Nair — attaches mockups for campaign tasks.
 - **JTBD refs:** #4 (visual proof for creative delivery)
+
+**Happy path (interactions)**
+
+1. Open task detail → scroll to **Attachments** / image section.
+2. Click **dropzone** or **Choose file** → pick image within allowed type/size.
+3. Watch **progress**; optional **Cancel** while uploading.
+4. Confirm **thumbnail** in grid; click to **lightbox** preview.
+
+**Edge / recover**
+
+- Upload fails (size/network) → error + **Retry**.
+- Wrong file → **Delete** attachment → confirm dialog when shipped.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -253,6 +441,18 @@
 - **Primary persona:** Miguel Santos — async handoff with partner without Slack.
 - **JTBD refs:** #1 (collaboration context); #5 (closure before deadline)
 
+**Happy path (interactions)**
+
+1. Open task detail → scroll to **Comments**.
+2. Read thread (chronological; author + time).
+3. Type in composer → click **Send** / submit.
+4. See new comment append (optimistic bubble until confirmed).
+
+**Edge / recover**
+
+- Typo shortly after send → **Edit** within short window or **Delete** per MVP rules.
+- Send fails → error on bubble + **Retry**.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Blocker note after deploy | Opens detail comments | "Keep it near the task." | Thread in Slack only | Comment stream anchored to task |
@@ -266,6 +466,16 @@
 - **Label:** nice-to-have
 - **Primary persona:** Priya Nair — breaks campaign task into asset checklist.
 - **JTBD refs:** #4 (mini steps without full project hierarchy)
+
+**Happy path (interactions)**
+
+1. **Post-MVP:** open task detail → expand **Subtasks / checklist** section when shipped.
+2. Add checklist lines; check/uncheck items.
+3. See progress on parent (optional list row chip when shipped).
+
+**Edge / recover**
+
+- MVP without subtasks → use **description** headings / bullets as workaround.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -281,6 +491,19 @@
 - **Primary persona:** Jordan Reyes — invites 2-week contractor.
 - **JTBD refs:** #1 (same list/board without extra paid seat elsewhere)
 
+**Happy path (interactions)**
+
+1. Open **`/settings/team`** (sidebar **Team** / empty-state CTA per sitemap).
+2. Click **Invite** (or equivalent).
+3. In modal: choose **email invite** and/or **copy invite link**; verify workspace name + inviter shown.
+4. Submit send or copy link → share out-of-band.
+5. Confirm **pending invite** row appears in team table.
+
+**Edge / recover**
+
+- Wrong email → **Revoke** + create new invite (owner).
+- Rate-limited resend → wait for cooldown copy.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | New engagement starts | Opens invite from workspace menu | "Fast invite, no procurement." | Hidden invite | Always-visible team entry |
@@ -294,6 +517,18 @@
 - **Label:** supporting
 - **Primary persona:** Miguel Santos — one owner, partner as member.
 - **JTBD refs:** #1 (minimal governance)
+
+**Happy path (interactions)**
+
+1. As **owner**, open **`/settings/team`**.
+2. Locate member row → open **role** control (Owner vs Member).
+3. If demoting/promoting, confirm in **modal** when required.
+4. Confirm badge updates; member’s task permissions follow MVP rule (members edit tasks).
+
+**Edge / recover**
+
+- Member row should not expose owner-only actions → read-only or hidden per role.
+- Cannot remove last owner → blocked with explainer.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -309,6 +544,18 @@
 - **Primary persona:** Jordan Reyes — tracks whether contractor actually joined.
 - **JTBD refs:** #1 (visibility without login juggling)
 
+**Happy path (interactions)**
+
+1. Open **`/settings/team`**.
+2. Scan **Invites** list: chips for **Pending** / **Accepted** / **Expired** + timestamps/countdown when shipped.
+3. For pending: click **Resend** or **Copy link** within rate limits.
+4. When invitee accepts, see row flip to **member** with avatar.
+
+**Edge / recover**
+
+- Expired → **Regenerate** / new invite flow per spec.
+- Stuck pending after accept → refocus page to poll; support if still broken.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Sent invite yesterday | Opens team panel | "Did they click?" | Black hole | Explicit pending/expired chips |
@@ -322,6 +569,18 @@
 - **Label:** nice-to-have
 - **Primary persona:** Priya Nair — wants client to see status without collaborator seat.
 - **JTBD refs:** #1 (visibility without seat-tax); #5 (client confidence)
+
+**Happy path (interactions)**
+
+1. **Post-MVP:** from share entry point, open **Share read-only** dialog.
+2. Generate **client link** with read-only badge visible in UI.
+3. **Copy link** → send to client.
+4. Client opens link → **`/list`** / **`/board`** (or scoped view) in read-only mode.
+
+**Edge / recover**
+
+- MVP: no client link → export/screenshot workaround from marketing copy.
+- Revoke access → **Revoke token** in list when shipped.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -337,6 +596,18 @@
 - **Primary persona:** Miguel Santos — evaluates tool in <5 minutes.
 - **JTBD refs:** #2 (time-to-truth); #3 (no architecture project)
 
+**Happy path (interactions)**
+
+1. From **`/register`** (or **`/login`**): submit email → complete **magic link** from inbox.
+2. First sign-in with no workspace → **`/onboarding/workspace`**: enter **workspace name**, confirm **timezone** → **Continue**.
+3. **`/onboarding/first-task`**: enter first **task title** (optional assignee/status per screen) → **Create** (or **Skip**).
+4. Land on **`/list`** with task row if created, or checklist empty state if skipped.
+
+**Edge / recover**
+
+- Validation on empty workspace name or empty task title → inline errors.
+- Workspace name typo later → **`/settings/workspace`** → rename.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Landing from marketing | Starts signup | "Don’t waste my night." | Long forms | Workspace name + user in one flow |
@@ -350,6 +621,17 @@
 - **Label:** supporting
 - **Primary persona:** Priya Nair — orients studio without admin manual.
 - **JTBD refs:** #2 (first minutes on throughput); #3 (low cognitive load)
+
+**Happy path (interactions)**
+
+1. Land on **`/list`** (or **`/board`**) with **zero tasks** and first-use flag.
+2. Read compact checklist (max ~3 CTAs): e.g. **Add first task**, **Move a status**, **Invite teammate**.
+3. Click each CTA in sequence (or skip invite); each routes to the real control (quick-add, board/list, **`/settings/team`**).
+4. After at least one task exists, empty illustration/checklist **dismisses**; if user deletes all tasks, gentle hint may return.
+
+**Edge / recover**
+
+- Skipped invite → open **Team** from sidebar later — no punitive copy.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -365,6 +647,16 @@
 - **Primary persona:** Jordan Reyes — wants freelance-shaped starter tasks.
 - **JTBD refs:** #2 (faster orientation); #4 (credible structure)
 
+**Happy path (interactions)**
+
+1. **Post-MVP:** on empty state, click **Use template** when shipped.
+2. Pick preset (e.g. one freelance starter).
+3. Confirm tasks inserted; optional **demo tasks** banner + bulk delete.
+
+**Edge / recover**
+
+- Until shipped → only manual **Add task** from empty state.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Empty state "use template" | Clicks | "Show me conventions." | **Post-MVP** per §4 | Until shipped, link to manual first task only |
@@ -378,6 +670,18 @@
 - **Label:** supporting
 - **Primary persona:** Jordan Reyes — EU clients + US work; timezone correctness for due dates.
 - **JTBD refs:** #1 (coordination); #5 (deadline truth)
+
+**Happy path (interactions)**
+
+1. Avatar / **Settings** → **`/settings/workspace`** (owner only for edits).
+2. Edit **Workspace name** and/or **Timezone** fields.
+3. **Save** (or autosave with feedback per implementation).
+4. Return to **`/list`** and confirm due labels / sorts respect new timezone.
+
+**Edge / recover**
+
+- Member hits page → **Owner only** locked card / read-only per sitemap.
+- Invalid name → inline validation before save.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
@@ -393,6 +697,16 @@
 - **Primary persona:** Priya Nair — may want Client review later; not MVP.
 - **JTBD refs:** #3 (future flexibility); #5 (workflow fit)
 
+**Happy path (interactions)**
+
+1. Open **`/settings/workspace`**.
+2. Read **read-only** explainer: three statuses locked for MVP.
+3. Optional: click **Send feedback** / link to request future columns.
+
+**Edge / recover**
+
+- Need “Client review” today → use **title prefix** or **comment** convention; no hidden fourth column toggle.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Wants fourth column someday | Visits settings (future) | "Later." | **MVP locked** per modules-features + founder brief defaults | Show read-only explanation of three statuses |
@@ -407,6 +721,17 @@
 - **Primary persona:** Priya Nair — tolerant if dismissible and tasteful.
 - **JTBD refs:** #1 (free core collaboration); #3 (trust without paywall)
 
+**Happy path (interactions)**
+
+1. On session milestone (or time-based rule), **banner/modal** surfaces donation ask.
+2. Read neutral copy → click **Dismiss** to continue task work unblocked.
+3. Or click **Donate** → external flow → return to app.
+4. Optional: open **`/settings/donation`** later to donate or tune reminder cadence.
+
+**Edge / recover**
+
+- Dismiss should not reappear aggressively; cooldown per policy.
+
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
 | Trigger | Session milestone or time-based | Modal/banner surfaces | "Here it comes." | Blocking modal | Dismiss continues work per brief |
@@ -420,6 +745,16 @@
 - **Label:** nice-to-have
 - **Primary persona:** Priya Nair — escaped noisy PM once; fears repeat.
 - **JTBD refs:** #3 (reduce noise vs all-in-one)
+
+**Happy path (interactions)**
+
+1. **Post-MVP / placeholder:** open **`/settings/notifications`**.
+2. Read MVP **defaults** + “controls coming soon” if that’s shipped copy.
+3. When toggles exist: flip categories (mentions, assignments, digest) → **Save**.
+
+**Edge / recover**
+
+- Missed email after muting → re-enable category; use **task comments** as backstop.
 
 | Stage | Touchpoint | Action | Thought / Emotion | Pain to avoid | Opportunity |
 |---|---|---|---|---|---|
