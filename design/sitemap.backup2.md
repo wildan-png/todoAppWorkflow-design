@@ -4,7 +4,7 @@ This document is the **authoritative screen and state inventory** for MVP UI des
 
 **Design rule:** Nothing is designed in downstream steps (e.g. Steps 5, 6.3, 6.4) unless it appears here.
 
-**Product posture:** Magic-link auth only; single workspace; owner/member roles; desktop-first left-sidebar shell; hard delete for tasks; task detail as URL-param drawer on list/board plus full-page deep link; filters/sorts in URL; bell notifications (no `/inbox`); donation reminder on session milestones plus persistent sidebar entry.
+**Product posture:** Magic-link auth only; single workspace; owner/member roles; desktop-first left-sidebar shell; hard delete for tasks; task detail as URL-param drawer on list/board plus full-page deep link; filters/sorts in URL; bell notifications (no `/inbox`); donation ask as **non-blocking modal or dismissible banner** on session milestones (or time-based rule) plus persistent sidebar entry.
 
 ---
 
@@ -51,6 +51,80 @@ flowchart TB
   o1 --> o2
 ```
 
+**How to read this chart:** Boxes are **route groups**. **§1a** below adds **connected arrows** (session + shell) so you can trace “where do I land if I…” without redrawing every URL inside each zone.
+
+### 1a. Connected flows (session + shell)
+
+**Relationship to other sections:** **§1** zone chart + path tree = **what exists**. **§1a** = **how you move between zones** in MVP. **§2** = full **auth + onboarding** detail. **§3** = whole-site zone map. **[../research/user-journeys.md](../research/user-journeys.md)** = fuller **click copy** and edge cases.
+
+#### Pre-auth → session → onboarding or `/list`
+
+```mermaid
+flowchart TB
+  subgraph PRE["Pre-auth · public"]
+    p1["/login"]
+    p2["/register"]
+    p3["/invite/accept?token"]
+  end
+  p1 --> ML["Magic link consumed → session"]
+  p2 --> ML
+  p3 --> ML
+  ML --> R{Post-auth router}
+  R -->|no workspace| o1["/onboarding/workspace"]
+  R -->|workspace · 0 tasks| o2["/onboarding/first-task"]
+  R -->|workspace · has tasks · or invite landed ready| list["/list · shell"]
+  o1 --> o2
+  o2 --> list
+```
+
+#### Signed-in shell: sidebar → work vs settings → sub-page
+
+```mermaid
+flowchart TB
+  subgraph SH["Outer shell · member+"]
+    SB["Main left sidebar"]
+    subgraph WORK["Main content · work"]
+      L["/list"]
+      B["/board"]
+      T["/tasks/id full page"]
+    end
+    subgraph STLAY["Main content · settings layout"]
+      SS["Settings sub-sidebar"]
+      SP["/settings/profile"]
+      SW["/settings/workspace"]
+      STE["/settings/team"]
+      SN["/settings/notifications"]
+      SD["/settings/donation"]
+    end
+  end
+  SB -->|nav List| L
+  SB -->|nav Board| B
+  SB -->|nav Settings| SP
+  SB -->|optional Donate| SD
+  SB -->|avatar Profile shortcut| SP
+  L <--> B
+  L --> T
+  B --> T
+  SS --> SP
+  SS --> SW
+  SS --> STE
+  SS --> SN
+  SS --> SD
+```
+
+*Opening **Settings** loads **`/settings/profile`** (or redirect from `/settings`) with **sub-sidebar + pane** together; edges from **Sub-sidebar** are **section switches** (same layout, new URL in the pane). **Donate** may also be reached from modal/banner (“manage”) per product posture.*
+
+#### Canonical strips (designer “how do I get there?”)
+
+Use these as **minimum happy paths** when auditing UI or copy. Steps name **chrome** then **URL** then **on-page action**.
+
+| Goal | Strip |
+|------|--------|
+| **Edit profile** | `/login` or `/register` or `/invite/accept` → email magic link → **post-auth router** → (if needed) `/onboarding/workspace` → `/onboarding/first-task` → **`/list` in shell** → **main sidebar · Settings** *or* **avatar · Profile** → **`/settings/profile`** → **settings sub-sidebar · Profile** (if not already) → **edit fields inline · save** |
+| **Invite / manage team** | Already in shell on **`/list`** or **`/board`** → **main sidebar · Settings** → **`/settings/team`** (sub-sidebar **Team**) → invite / revoke / resend (modals as specified in §3). *Alt entry:* sidebar **Invite** or empty-state CTA → same **`/settings/team`** where applicable. |
+| **Open task detail** | **`/list`** or **`/board`** → **click row title / card** (not status chip) → **`?task=id` drawer** *or* land on **`/tasks/id`** from link → **Esc / back** returns to list/board. |
+| **Workspace name / timezone (owner)** | Shell → **main sidebar · Settings** → **`/settings/workspace`** (sub-sidebar **Workspace**). |
+
 **Full path tree (reference):**
 
 ```text
@@ -91,6 +165,12 @@ aTodo
 
 - **Logout** is an action (clears session → redirects to `/login`), not a route.
 - **Task detail** renders three ways: (a) right-side drawer over `/list` when `?task=[id]` is set; (b) right-side drawer over `/board` when `?task=[id]` is set; (c) standalone full page at `/tasks/[id]` for direct links and refresh.
+
+**Shell layout — main sidebar vs primary surfaces vs settings**
+
+- **One signed-in shell (desktop):** After auth, `/list`, `/board`, `/tasks/[taskId]`, and `/settings/*` all use the same **outer frame**: **main left sidebar** (workspace + nav) + **main content region**. Onboarding and pre-auth routes **do not** use this shell (full-width flows).
+- **Primary surfaces are not “beside” the sidebar:** They are **what loads in the main content** when you pick a work route. **List** and **Board** are two URLs that swap that region; the sidebar stays put. **`?task=`** opens a **drawer over** the list/board content; the sidebar stays visible (drawer is stacked on the content column, not a third parallel “app”).
+- **Settings is still the same shell:** Choosing **Settings** (sidebar or avatar) navigates to `/settings/…` so the **work surface is replaced** by the settings layout inside the **same** main content area. Inside that area, MVP uses a **settings sub-sidebar** (second narrow column) for `/settings/profile`, `/settings/team`, etc.; the **main workspace sidebar** remains the outer chrome.
 
 **Role legend**
 
@@ -138,6 +218,58 @@ flowchart TB
 ---
 
 ## 3. Full Page Inventory
+
+Every **`###` block below** is one routable screen (or redirect) in MVP. **§1** has the same routes as a **text tree + role legend**; **§1a** has **connected flows + canonical strips** (e.g. edit profile). **§2** zooms only into **auth → onboarding → first `/list`**. This subsection adds a **whole-site zone map** so “sitemap” reads as **all** pages—not only the auth flow.
+
+**How this diagram relates to the sidebar:** **App · primary surfaces** and **Settings** are **route groups**, not two different apps. Dotted **`shell`** edges mean “from `/list` or `/board`, user uses the **main left sidebar** to open Settings → URL becomes `/settings/…` while the **same outer shell** stays.” See **Shell layout** in **§1 Notes**.
+
+**Inventory map (all MVP pages by zone):**
+
+```mermaid
+flowchart TB
+  subgraph PRE["Pre-auth"]
+    direction TB
+    p1["/login"]
+    p2["/register"]
+    p3["/invite/accept?token"]
+  end
+  subgraph ONB["Onboarding · first-time"]
+    direction TB
+    o1["/onboarding/workspace"]
+    o2["/onboarding/first-task"]
+  end
+  subgraph APP["App · primary surfaces"]
+    direction TB
+    r["/ → /list or /login"]
+    l["/list + filters, sort, ?task=id"]
+    b["/board + group, filters, ?task=id"]
+    t["/tasks/taskId · full page"]
+  end
+  subgraph SET["Settings · sub-sidebar"]
+    direction TB
+    s0["/settings → /settings/profile"]
+    s1["/settings/workspace · owner"]
+    s2["/settings/team"]
+    s3["/settings/profile"]
+    s4["/settings/notifications"]
+    s5["/settings/donation"]
+  end
+  subgraph SYS["System / utility"]
+    direction TB
+    y404["/404"]
+    y500["/500"]
+    ym["/maintenance"]
+    ys["/suspended"]
+  end
+  o1 --> o2
+  l <--> b
+  l --> t
+  b --> t
+  l -.->|shell| s0
+  b -.->|shell| s0
+```
+
+*Query strings, roles (`public` / `member+` / `owner` / `self`), and task-detail modes (drawer vs full page) stay exactly as in **§1** and each page block.*
 
 ### Login
 
@@ -198,6 +330,8 @@ flowchart TB
 - **Features present:** Unified task list view, quick add, inline status from list, filter by status/assignee/priority, sort by due/priority/updated, list/board/detail parity sync
 - **Navigates to:** `/list?task=[id]` (drawer), `/board` (preserve filters where applicable), `/settings/*`, `/tasks/[id]` when user opens copied deep link
 - **Reached from:** Post-login, post-onboarding, sidebar, `/`
+- **Create (main list):** `+` opens the **Quick-add inline row** (anchored at the top of the table—see §5). Not a centered “new task” modal; not the `?task=` drawer. First task in a brand-new workspace may instead be created on `/onboarding/first-task` (onboarding variant).
+- **Open existing task vs status:** Clicking the **row / title** (primary target) opens **task detail** (`?task=` drawer or full page). The **status chip** is its own control—opens **status** change only, not full detail.
 
 ### Status Board
 
@@ -208,6 +342,7 @@ flowchart TB
 - **Features present:** Three default columns, drag-and-drop status move, parity sync, swimlane group by assignee
 - **Navigates to:** `/board?task=[id]` (drawer), `/list`, `/settings/*`
 - **Reached from:** Sidebar, `/list`
+- **Filters vs list:** Board reads the same filter query keys as `/list` when navigating with **preserve filters where applicable**. If the product ever shows list filtered and board unfiltered (or vice versa), the UI must **state the rule** (toggle or inline explainer)—no silent mismatch.
 
 ### Task Detail
 
@@ -215,9 +350,9 @@ flowchart TB
 - **Priority:** primary
 - **Purpose:** Full task context: fields, ownership, dates, attachments, comments.
 - **Primary persona:** Priya (briefs), Miguel (handoffs)
-- **Features present:** Core task fields, assignee and priority, due date, image attachments, comments/activity trail
+- **Features present:** Core task fields, assignee and priority, due date, image attachments, comments (MVP: text comments + optional short **edit/delete** grace window after send; not a full activity graph)
 - **Navigates to:** Prior list/board (Esc/back closes drawer or back from full page)
-- **Reached from:** List row, board card, bell item, direct link
+- **Reached from:** List **row / title** (not the status chip), board card, bell item, direct link
 
 ### Settings (index)
 
@@ -400,6 +535,7 @@ Shared matrix **plus:**
 | Detail overlay open | `?task=[id]` | Drawer over list; scroll preserved |
 | Long title row | Long title | Truncate + tooltip |
 | No assignee row | Unassigned | “Unassigned” chip |
+| Stale data / user refresh | User suspects drift or policy | Optional toolbar **Refresh** refetch when shipped; tab refocus may trigger refetch |
 
 ### `/board`
 
@@ -418,6 +554,7 @@ Shared matrix **plus:**
 | Filtered subset | URL filters | Fewer cards; column counts adjust |
 | Detail overlay open | `?task=[id]` | Drawer over board |
 | WIP overload (Post-MVP) | Reserved | Not active in MVP |
+| Stale data / user refresh | User suspects drift or policy | Same as `/list`: optional **Refresh** when shipped; tab refocus may refetch |
 
 ### `/tasks/[taskId]` (full page and drawer)
 
@@ -437,6 +574,8 @@ Shared matrix **plus:**
 | Comments loading | Fetch | Skeleton bubbles |
 | Comment submitting | Send | Optimistic pending bubble |
 | Comment submit failed | API error | Error on bubble + retry |
+| Comment edit (grace) | Within allowed window after send | Inline edit or edit mode; save or cancel |
+| Comment delete | User deletes own comment | Soft confirm optional; remove from thread |
 | Task deleted elsewhere | Sync | “This task was deleted” + close |
 | Task not found | Bad id | Inline 404 in shell |
 | Long title overflow | Long title | Wrap in detail |
@@ -502,12 +641,12 @@ Single-state utility pages. `/suspended`: contact support CTA. `/404`: when auth
 
 | Name | Triggered from | Purpose | States |
 |------|----------------|---------|--------|
-| Quick-add inline row | `/list` “+” | Fast title capture | open / submitting / error / success |
-| Task detail drawer | List row, board card, bell item; sets `?task=[id]` | Edit without losing list/board | open / loading / loaded / saving / save-error / closed |
-| Filter popover | `/list`, `/board` toolbar | Filters → URL params | open / applied / cleared |
+| Quick-add inline row | `/list` “+” | Fast title capture **(top inline row in table—not centered modal, not `?task=` create)** | open / submitting / error / success |
+| Task detail drawer | **List row / title** (not status chip), board card, bell item; sets `?task=[id]` | Edit existing task without losing list/board | open / loading / loaded / saving / save-error / closed |
+| Filter popover | `/list`, `/board` toolbar | Filters → shared URL params on both surfaces; preserve filters when switching list ↔ board **where applicable**; if surfaces can diverge, require toggle or explainer copy | open / applied / cleared |
 | Sort dropdown | `/list` toolbar | Sort → URL `sort` | open / selected |
 | Group-by toggle | `/board` toolbar | `?group=assignee` | off / on |
-| Status chip dropdown | List row, board card, detail | Status change | open / changing / changed |
+| Status chip dropdown | List row, board card, detail | **Status only** (chip/dropdown—not the control that opens full task detail on list; see Task List notes) | open / changing / changed |
 | Assignee picker | Detail, list row, board card | Reassign | open / search / selected / saving |
 | Priority picker | Detail, list row | Priority | open / selected |
 | Due date picker | Detail, list row | Date set/clear | open / picked / cleared |
@@ -521,7 +660,7 @@ Single-state utility pages. `/suspended`: contact support CTA. `/404`: when auth
 | Confirm: change role | Member row | Promote/demote | open / confirming / done / blocked |
 | User avatar menu | Sidebar avatar | Profile, Settings, Sign out | open / closed |
 | Bell dropdown | Sidebar bell | ≤10 events; unread badge; mark all read | closed / open / loading / empty / list / mark-all-read pending |
-| Donation reminder modal | Session milestone (Nth login) | Optional support | open / dismissed / donated / cooldown |
+| Donation reminder (modal **or** dismissible **banner**) | Session milestone (Nth login) or time-based rule | Optional support; never blocks task actions | open / dismissed / donated / cooldown |
 | Onboarding empty-state coachmarks | First `/list` after onboarding | Three CTAs | shown / step-completed / dismissed |
 | Save-conflict toast | Concurrent write | Refetch offer | shown / refetched / dismissed |
 | Generic error toast | Mutation fail | Feedback | shown / dismissed |
@@ -544,7 +683,7 @@ flowchart LR
   TOff["offline"] --> BOff["Banner · reads OK · writes blocked"]
   TConf["Save conflict"] --> HConf["Toast + refetch"]
   TWsDel["Workspace deleted"] --> RWs["/onboarding/workspace + toast"]
-  TDon["Donation modal dismissed"] --> CDon["Suppress modal · sidebar Donate stays"]
+  TDon["Donation ask dismissed"] --> CDon["Cooldown · sidebar Donate stays"]
 ```
 
 | State | Trigger | Treatment |
@@ -557,7 +696,7 @@ flowchart LR
 | Workspace deleted | Rare | Redirect `/onboarding/workspace` + toast |
 | Quota exceeded | N/A MVP | Reserved; not implemented |
 | Deprecated / sunset | N/A MVP | Read-only copy on workspace settings only |
-| Donation cooldown | After modal dismiss | Suppress modal; sidebar Donate stays |
+| Donation cooldown | After modal **or banner** dismiss | Suppress repeat nag per policy; sidebar Donate stays |
 
 ---
 
