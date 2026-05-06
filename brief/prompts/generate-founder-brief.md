@@ -1,39 +1,43 @@
-# Prompt: Generate `founder-brief.md` from `brief/raw/`
+# Prompt: Generate `founder-brief.md` in backup2 style
 
-Use this prompt to synthesize all client context in `brief/raw/` into one structured founder brief for product design work.
+Use this prompt to synthesize all relevant context into a founder brief that matches the style and structure of `brief/founder-brief.backup2.md`.
 
 ---
 
 ## Instructions for the model
 
-**Input scope (strict):**
+**Input scope:**
 
 - Read all readable text files under `brief/raw/**` recursively (e.g. `.md`, `.txt`, `.csv`).
+- Also read `brief/brief.md` if it exists.
 - Exclude output and instruction files from source facts:
   - `brief/founder-brief.md`
   - `brief/prompts/**`
-- Ignore binary-only files unless a text summary exists in `brief/raw/`.
+- Ignore binary-only files unless a text summary exists.
 
 **Output:**
 
 - Write exactly one file: `brief/founder-brief.md`.
 
-**Rules:**
+**Style requirements (must match backup2 feel):**
 
-1. **Do not invent or assume.** Only include claims explicitly stated in sources. If a field is unclear or absent, write exactly:
-   `⚠️ Not mentioned — needs follow-up`
-2. **Keep synthesis conservative.** Combine facts only when the link is explicit and unavoidable from source wording.
-3. **Competitor labeling must be explicit.** Do not call a tool a direct competitor unless sources explicitly frame it as competitor/alternative/replacement.
-4. **Role-based classification for named products.** For each named product, classify using explicit source wording:
-   - **Direct competitor**: explicitly framed as competitor/alternative/replacement with meaningful overlap.
-   - **Indirect competitor**: explicitly solves similar core problem but via different product category/scope.
-   - **Reference only (not competitor)**: cited for workflow/UX pattern/adaptation, not market replacement.
-   - If role is unclear, write: `⚠️ Role unclear — needs follow-up`
-5. **Tie-break rule (strict).** If a product shares a workflow but is not explicitly framed as competitor, keep it out of direct competitors and place it under founder reference products with note: `Workflow reference only (not a competitor)`.
-6. **Conflicts.** If sources disagree, add both statements under `## Decisions & conflicts (from sources)` and end with:
-   `⚠️ Needs follow-up with client`
-7. **Provenance.** Add a `## Source index` section listing all source file paths used (repo-relative).
-8. **Sections constraint.** Output only the sections listed below, in exact order. One exception is allowed: `## Client follow-up checklist (for unresolved items above)` may be appended after `## Source index`.
+1. Use this exact title line at top:
+   `# Founder brief — synthesized from \`/brief/\``
+2. Immediately below title, add a single-line `**Sources:** ...` summary.
+3. Use `---` separators between major sections.
+4. For each question, format as:
+   `- **Question text?**`
+   then answer on the next indented line.
+5. Keep language practical and product-facing. Prefer concrete defaults over vague placeholders.
+6. If information is missing, do **not** invent facts. Use one of:
+   - `Founder: not specified yet.`
+   - `Not specified in sources.`
+7. You may include labeled defaults only when clearly marked, using:
+   - `Recommended default (speculative — confirm): ...`
+8. Competitor handling:
+   - Only call products direct/indirect competitors when explicitly supported by sources.
+   - If a product is inspirational only, label it as a reference.
+9. No generic filler text. Every bullet must either cite source-backed fact or explicit labeled speculation.
 
 ---
 
@@ -47,9 +51,7 @@ Use level-2 markdown headings (`##`) in this exact order:
 4. `## 🎨 Design Direction`
 5. `## 🔧 Technical Constraints`
 6. `## 💰 Business Context`
-7. `## Decisions & conflicts (from sources)`
-8. `## Source index`
-9. `## Client follow-up checklist (for unresolved items above)` *(optional; only when unresolved items exist)*
+7. `## Decisions & definitions (plain English)`
 
 Under each section, keep the exact bullet questions below and answer each one.
 
@@ -58,6 +60,7 @@ Under each section, keep the exact bullet questions below and answer each one.
 - What is the product and what problem does it solve?
 - Who is the target user? (demographics, behavior, context of use)
 - What is the core value proposition — why would someone choose this over alternatives?
+- What does success look like in 6 months? In 1 year?
 
 ### Under `## 🏁 Competitors & Market`
 
@@ -66,7 +69,6 @@ Under each section, keep the exact bullet questions below and answer each one.
 - What do competitors do well that we should match or beat?
 - What do competitors do poorly that we can exploit?
 - Is there a product the founder admires as a reference? (even outside the category)
-- Scope note: identify which named products are `Reference only (not competitors)`.
 
 ### Under `## ⚙️ Product Scope`
 
@@ -84,28 +86,23 @@ Under each section, keep the exact bullet questions below and answer each one.
 
 ### Under `## 🔧 Technical Constraints`
 
+- Has a tech stack been decided?
 - Are there required integrations? (APIs, third-party tools)
 - Any accessibility or compliance requirements?
 
 ### Under `## 💰 Business Context`
 
 - What is the monetization model?
+- Who are the stakeholders involved in design decisions?
 
-### Under `## Decisions & conflicts (from sources)`
+### Under `## Decisions & definitions (plain English)`
 
-- Add conflict bullets if present.
-- If none, write exactly:
-  `No conflicting statements captured in the sources read.`
-
-### Under `## Source index`
-
-- List every file path used as evidence from `brief/raw/**`.
-
-### Under `## Client follow-up checklist (for unresolved items above)` *(optional)*
-
-- Include only unresolved items already present in the brief.
-- If there are no unresolved items, write exactly:
-  `- None for this pass.`
+- Add numbered items for unresolved implementation decisions found in sources.
+- For each item:
+  - Explain what it means in plain English.
+  - Add one `Recommended default (speculative — confirm): ...` if helpful.
+- If there are no unresolved decisions, write:
+  `No unresolved implementation decisions were captured in the sources read.`
 
 ---
 

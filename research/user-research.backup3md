@@ -1,0 +1,51 @@
+## Target User Profile
+- Primary users are solo freelancers and micro-teams (1-3 people) delivering client work, aligned with the founder brief.
+- Typical roles are design, development, marketing, content, and other digital-service operators who need lightweight task coordination.
+- Work context is remote/distributed and browser-first, with fast check-ins during active delivery windows rather than formal PM rituals.
+- Tech profile is medium to high: users can handle structured tools but have low tolerance for setup overhead and workflow friction.
+- Independent-worker scale supports this segment focus (72.7M U.S. independents; 27.7M full-time independents in 2024) ([MBO 2024 State of Independence](https://www.mbopartners.com/state-of-independence/2024-report/)).
+
+## Key Pain Points
+
+1. Over-complex PM suites create setup and maintenance burden that is too heavy for 1-3 person teams.
+2. Workflow mismatch: teams use only core list/board/task features but still navigate broad feature surfaces.
+3. Mobile reliability gaps (save uncertainty, offline/edit friction) reduce trust for on-the-go updates ([Linear App Store reviews](https://apps.apple.com/us/app/linear-mobile/id1645587184?see-all=reviews)).
+4. Cost and pricing predictability become painful once a second or third collaborator is added (directional from competitor discussions plus founder context).
+5. Self-host alternatives reduce license spend but shift burden to hosting/maintenance work ([Plane self-hosted](https://plane.so/self-hosted)).
+
+## Unmet Needs
+
+- Small-team-native defaults where status and ownership are clear without configuration work.
+- Fast task operations (capture, assign, move status, close) with minimal cognitive load.
+- Trustworthy reliability in core editing and status changes across real working contexts.
+- Predictable economics for tiny teams, without sudden jumps in perceived cost/value.
+- Focused product scope that avoids enterprise-style module sprawl for V1.
+
+## Current Workarounds
+
+- Notion/docs databases for flexibility, but these require ongoing schema/process maintenance.
+- Spreadsheets or simple Kanban boards for low setup, but ownership and status visibility degrade as collaboration grows.
+- Chat/email for speed, but teams lose a reliable execution source of truth and clear accountability.
+- Full PM suites (ClickUp/Asana/Linear) when clients require it, while teams ignore many features to keep flow lightweight.
+- Self-hosted tools for cost control, trading license savings for operational overhead ([Plane self-hosted](https://plane.so/self-hosted)).
+
+## Emotional Drivers
+
+- Control and autonomy over daily work.
+- Speed and low friction in execution.
+- Trust and predictability in product behavior and pricing.
+- Simplicity with enough structure to stay accountable.
+- Professional credibility matters: users want to appear organized and reliable to clients/collaborators (directional).
+
+## Market Signals
+
+- Independent-worker market remains large: 72.7M U.S. independents in 2024, including 27.7M full-time independents ([MBO 2024 State of Independence](https://www.mbopartners.com/state-of-independence/2024-report/)).
+- Full-time independents report strong positive sentiment (84% say they are happier), supporting durability of the target segment ([MBO 2024 State of Independence](https://www.mbopartners.com/state-of-independence/2024-report/)).
+- Team collaboration software is growing from USD 36,114.2M (2024) to USD 57,403.8M (2030), 7.4% CAGR ([Grand View Research](https://www.grandviewresearch.com/industry-analysis/team-collaboration-software-market)).
+- Remote/hybrid work patterns continue to drive demand for integrated collaboration/task workflows ([Grand View Research](https://www.grandviewresearch.com/industry-analysis/team-collaboration-software-market)).
+- Market discourse continues to emphasize "simple vs bloated" PM tooling for small teams (directional from community threads).
+
+## Source Notes
+
+- Primary-weighted: [MBO 2024 State of Independence](https://www.mbopartners.com/state-of-independence/2024-report/), [Grand View Research](https://www.grandviewresearch.com/industry-analysis/team-collaboration-software-market), [Linear App Store reviews](https://apps.apple.com/us/app/linear-mobile/id1645587184?see-all=reviews), [Plane self-hosted](https://plane.so/self-hosted), founder brief (`brief/founder-brief.md`).
+- Secondary/directional: community sentiment from Reddit/discussion aggregations used only for qualitative pattern detection (not hard quantitative claims).
